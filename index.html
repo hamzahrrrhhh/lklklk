@@ -18,6 +18,7 @@
             --background-color: #fdfaf2;
             --warm-white: #FDF5E6;
             --warm-gray: #706c61;
+            --danger-red: #d9534f;
         }
 
         * {
@@ -626,6 +627,31 @@
             /* border-top: 2px solid rgba(179, 135, 40, 0.2); تم استبداله بالفاصل */
         }
 
+        .section-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #admin-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        #admin-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--warm-gray);
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+        #admin-btn:hover svg {
+            fill: var(--gold-main);
+            transform: rotate(45deg);
+        }
+
         .guestbook-form {
             max-width: 600px;
             margin: 0 auto 50px auto;
@@ -696,6 +722,7 @@
             border-top: 5px solid var(--gold-light);
             box-shadow: 0 5px 15px rgba(0,0,0,0.07);
             animation: fade-in-card 0.5s ease;
+            position: relative; /* Needed for delete button positioning */
         }
 
             .message-card .message-text {
@@ -716,6 +743,36 @@
                 color: var(--gold-main);
                 text-align: left;
             }
+        
+        /* ======== NEW: Delete Button on Message Card ======== */
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* يمين في RTL */
+            background: var(--danger-red);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .admin-mode .delete-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .delete-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
         
         /* ======== NEW: Pagination Controls ======== */
         .pagination-controls {
@@ -860,6 +917,22 @@
             color: var(--warm-gray);
             margin-bottom: 25px;
             line-height: 1.6;
+        }
+
+        /* NEW: Password Input in Modal */
+        .modal-content input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(179, 135, 40, 0.3);
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .modal-content input[type="password"]:focus {
+            outline: none;
+            border-color: var(--gold-main);
         }
 
         .modal-close-btn {
@@ -1095,7 +1168,7 @@
             <li><a href="#hero-section" class="nav-link">الدعوة</a></li>
             <li><a href="#album-section" class="nav-link">ألبوم الصور</a></li>
             <li><a href="#event-details-section" class="nav-link">تفاصيل الحفل</a></li>
-            <li><a href="#guestbook-section" class="nav-link">تهنئة للعرسان</a></li>
+            <li><a href="#guestbook-section" class="nav-link">سجل الزوار</a></li>
         </ul>
     </nav>
 
@@ -1153,7 +1226,7 @@
     </section>
 
     <section id="album-section" class="album-section">
-        <h2 class="section-title">ألبوم الصور</h2>
+        <h2 class="section-title">أجمل لحظاتنا</h2>
         <div class="album-carousel">
         </div>
         <div class="album-nav">
@@ -1199,11 +1272,16 @@
     </section>
 
     <section id="guestbook-section" class="guestbook-section">
-        <h2 class="section-title">تهنئة للعرسان</h2>
+        <div class="section-title-container">
+            <h2 class="section-title">سجل الزوار</h2>
+            <button id="admin-btn" aria-label="Admin Login">
+                <svg id="admin-icon-svg" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            </button>
+        </div>
         <form class="guestbook-form" id="guestbook-form">
             <input type="text" id="guest-name" placeholder="الاسم الكريم" required>
             <textarea id="guest-message" placeholder="اترك لنا أمنية جميلة..." required></textarea>
-            <button type="submit">إرسال التهنئة </button>
+            <button type="submit">إرسال الأمنية</button>
         </form>
         <div class="messages-container" id="messages-container">
             <!-- سيتم إضافة الرسائل هنا بواسطة جافاسكريبت -->
@@ -1246,6 +1324,16 @@
             <button class="modal-close-btn" id="modal-close">حسنًا</button>
         </div>
     </div>
+    
+    <!-- NEW: Admin Password Modal -->
+    <div class="modal-overlay" id="admin-modal">
+        <div class="modal-content">
+            <p>الرجاء إدخال كلمة المرور</p>
+            <input type="password" id="admin-password-input">
+            <button class="modal-close-btn" id="admin-submit-btn">دخول</button>
+        </div>
+    </div>
+
 
     <!-- ================================================================= -->
     <!-- START: FIREBASE LIBRARIES -->
@@ -1278,7 +1366,7 @@
             // END: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
 
-            // Modal Logic (No changes here)
+            // Modal Logic
             const modal = document.getElementById('custom-modal');
             const modalMessage = document.getElementById('modal-message');
             const closeModalBtn = document.getElementById('modal-close');
@@ -1451,7 +1539,7 @@
 
 
             // =================================================================
-            // START: UPDATED GUESTBOOK LOGIC (WITH PAGINATION)
+            // START: UPDATED GUESTBOOK LOGIC (WITH ADMIN DELETE)
             // =================================================================
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
@@ -1465,6 +1553,53 @@
             let allMessages = [];
             let currentPage = 1;
             const messagesPerPage = 5;
+            let isAdmin = false; // Admin mode state
+            const ADMIN_PASSWORD = "1234"; //  <-- يمكنك تغيير كلمة المرور من هنا
+
+            // --- Admin Login Elements & Logic ---
+            const adminBtn = document.getElementById('admin-btn');
+            const adminModal = document.getElementById('admin-modal');
+            const adminPasswordInput = document.getElementById('admin-password-input');
+            const adminSubmitBtn = document.getElementById('admin-submit-btn');
+            const adminIconSvg = document.getElementById('admin-icon-svg');
+            const logoutIconPath = "M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l-3-3m0 0l-3 3m3-3v9";
+            const loginIconPath = "M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z";
+
+            adminBtn.addEventListener('click', () => {
+                if (isAdmin) {
+                    // Logout
+                    isAdmin = false;
+                    document.body.classList.remove('admin-mode');
+                    adminIconSvg.querySelector('path').setAttribute('d', loginIconPath);
+                    showModal('تم تسجيل الخروج.');
+                    renderPage(); // Re-render to hide delete buttons
+                } else {
+                    // Show login modal
+                    adminModal.classList.add('is-visible');
+                    adminPasswordInput.focus();
+                }
+            });
+
+            adminSubmitBtn.addEventListener('click', () => {
+                if (adminPasswordInput.value === ADMIN_PASSWORD) {
+                    isAdmin = true;
+                    document.body.classList.add('admin-mode');
+                    adminModal.classList.remove('is-visible');
+                    adminPasswordInput.value = '';
+                    adminIconSvg.querySelector('path').setAttribute('d', logoutIconPath);
+                    showModal('أهلاً أيها المدير! يمكنك الآن حذف الرسائل.');
+                    renderPage(); // Re-render to show delete buttons
+                } else {
+                    showModal('كلمة المرور غير صحيحة.');
+                }
+            });
+            
+            adminModal.addEventListener('click', function(e) {
+                if (e.target === adminModal) {
+                    adminModal.classList.remove('is-visible');
+                }
+            });
+
 
             // --- Function to render messages for the current page ---
             function renderPage() {
@@ -1480,28 +1615,24 @@
                 
                 paginationControls.style.display = 'flex'; // Show controls if messages exist
 
-                // Calculate start and end index for the current page
                 const startIndex = (currentPage - 1) * messagesPerPage;
                 const endIndex = startIndex + messagesPerPage;
                 const pageMessages = allMessages.slice(startIndex, endIndex);
 
-                // Render the messages for the current page
                 pageMessages.forEach(msg => {
-                    createMessageCard(msg.name, msg.message);
+                    createMessageCard(msg.id, msg.name, msg.message);
                 });
 
-                // Update page indicator text
                 pageIndicator.textContent = `صفحة ${currentPage} / ${totalPages}`;
-
-                // Update button states (disabled or enabled)
                 prevPageBtn.disabled = currentPage === 1;
                 nextPageBtn.disabled = currentPage === totalPages;
             }
 
             // --- Function to create a single message card in the HTML ---
-            function createMessageCard(name, message) {
+            function createMessageCard(id, name, message) {
                 const messageCard = document.createElement('div');
                 messageCard.classList.add('message-card');
+                messageCard.dataset.id = id; // Store Firestore document ID
 
                 const messageText = document.createElement('p');
                 messageText.classList.add('message-text');
@@ -1514,7 +1645,31 @@
                 messageCard.appendChild(messageText);
                 messageCard.appendChild(messageAuthor);
 
-                messagesContainer.appendChild(messageCard); // Use appendChild as we clear container first
+                // Add delete button if in admin mode
+                if (isAdmin) {
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>';
+                    deleteBtn.onclick = () => deleteMessage(id);
+                    messageCard.appendChild(deleteBtn);
+                }
+
+                messagesContainer.appendChild(messageCard);
+            }
+
+            // --- Function to delete a message ---
+            async function deleteMessage(id) {
+                if (!isAdmin) return;
+                if (confirm('هل أنت متأكد من حذف هذه الرسالة؟')) {
+                    try {
+                        await messagesCollection.doc(id).delete();
+                        showModal('تم حذف الرسالة بنجاح.');
+                        // The onSnapshot listener will automatically re-render the list
+                    } catch (error) {
+                        console.error("Error removing document: ", error);
+                        showModal('حدث خطأ أثناء الحذف.');
+                    }
+                }
             }
 
             // --- Handle form submission to save data to Firestore ---
@@ -1557,9 +1712,8 @@
 
             // --- Listen for real-time updates from Firestore ---
             messagesCollection.orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-                allMessages = snapshot.docs.map(doc => doc.data()); // Store all messages
-                currentPage = 1; // Reset to the first page whenever data changes
-                renderPage(); // Render the first page
+                allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderPage(); // Render the current page with new data
             }, error => {
                 console.error("Error fetching messages: ", error);
                 messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل.</p>';
