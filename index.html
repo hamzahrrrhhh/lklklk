@@ -598,7 +598,7 @@
                 color: var(--warm-gray);
                 line-height: 1.7;
             }
-
+        
         /* NEW: Location Button Style */
         .location-btn {
             display: inline-block;
@@ -614,10 +614,10 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-            .location-btn:hover {
-                background-color: var(--gold-dark);
-                transform: translateY(-2px);
-            }
+        .location-btn:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
         /* ======== قسم سجل الزوار ======== */
         .guestbook-section {
@@ -716,7 +716,7 @@
                 color: var(--gold-main);
                 text-align: left;
             }
-
+        
         /* ======== NEW: Pagination Controls ======== */
         .pagination-controls {
             display: flex;
@@ -739,16 +739,16 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-            .pagination-btn:hover:not(:disabled) {
-                background-color: var(--gold-dark);
-                transform: translateY(-2px);
-            }
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
-            .pagination-btn:disabled {
-                background-color: var(--warm-gray);
-                cursor: not-allowed;
-                opacity: 0.6;
-            }
+        .pagination-btn:disabled {
+            background-color: var(--warm-gray);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
 
         #page-indicator {
             font-size: 1.1rem;
@@ -1095,7 +1095,7 @@
             <li><a href="#hero-section" class="nav-link">الدعوة</a></li>
             <li><a href="#album-section" class="nav-link">ألبوم الصور</a></li>
             <li><a href="#event-details-section" class="nav-link">تفاصيل الحفل</a></li>
-            <li><a href="#guestbook-section" class="nav-link">سجل الزوار</a></li>
+            <li><a href="#guestbook-section" class="nav-link">تهنئة للعرسان</a></li>
         </ul>
     </nav>
 
@@ -1153,7 +1153,7 @@
     </section>
 
     <section id="album-section" class="album-section">
-        <h2 class="section-title">أجمل لحظاتنا</h2>
+        <h2 class="section-title">ألبوم الصور</h2>
         <div class="album-carousel">
         </div>
         <div class="album-nav">
@@ -1199,11 +1199,11 @@
     </section>
 
     <section id="guestbook-section" class="guestbook-section">
-        <h2 class="section-title">سجل الزوار</h2>
+        <h2 class="section-title">تهنئة للعرسان</h2>
         <form class="guestbook-form" id="guestbook-form">
             <input type="text" id="guest-name" placeholder="الاسم الكريم" required>
             <textarea id="guest-message" placeholder="اترك لنا أمنية جميلة..." required></textarea>
-            <button type="submit">إرسال الأمنية</button>
+            <button type="submit">إرسال التهنئة </button>
         </form>
         <div class="messages-container" id="messages-container">
             <!-- سيتم إضافة الرسائل هنا بواسطة جافاسكريبت -->
@@ -1259,7 +1259,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            
             // =================================================================
             // START: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
@@ -1455,7 +1455,7 @@
             // =================================================================
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
-
+            
             // --- Pagination Elements ---
             const paginationControls = document.getElementById('pagination-controls');
             const prevPageBtn = document.getElementById('prev-page-btn');
@@ -1469,7 +1469,7 @@
             // --- Function to render messages for the current page ---
             function renderPage() {
                 messagesContainer.innerHTML = ''; // Clear current messages
-
+                
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
 
                 if (allMessages.length === 0) {
@@ -1477,7 +1477,7 @@
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">كن أول من يترك أمنية جميلة!</p>';
                     return;
                 }
-
+                
                 paginationControls.style.display = 'flex'; // Show controls if messages exist
 
                 // Calculate start and end index for the current page
@@ -1541,7 +1541,7 @@
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-
+                    
                     nameInput.value = '';
                     messageInput.value = '';
                     showModal('شكراً على أمنيتك الجميلة!');
