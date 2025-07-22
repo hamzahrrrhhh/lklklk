@@ -599,7 +599,7 @@
                 color: var(--warm-gray);
                 line-height: 1.7;
             }
-
+        
         /* NEW: Location Button Style */
         .location-btn {
             display: inline-block;
@@ -615,10 +615,10 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-            .location-btn:hover {
-                background-color: var(--gold-dark);
-                transform: translateY(-2px);
-            }
+        .location-btn:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
         /* ======== قسم سجل الزوار ======== */
         .guestbook-section {
@@ -641,17 +641,16 @@
             padding: 5px;
         }
 
-            #admin-btn svg {
-                width: 28px;
-                height: 28px;
-                fill: var(--warm-gray);
-                transition: fill 0.3s ease, transform 0.3s ease;
-            }
-
-            #admin-btn:hover svg {
-                fill: var(--gold-main);
-                transform: rotate(45deg);
-            }
+        #admin-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--warm-gray);
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
+        #admin-btn:hover svg {
+            fill: var(--gold-main);
+            transform: rotate(45deg);
+        }
 
         .guestbook-form {
             max-width: 600px;
@@ -744,7 +743,7 @@
                 color: var(--gold-main);
                 text-align: left;
             }
-
+        
         /* ======== NEW: Delete Button on Message Card ======== */
         .delete-btn {
             position: absolute;
@@ -756,17 +755,18 @@
             width: 30px;
             height: 30px;
             cursor: pointer;
-            display: flex;
+            display: none; /* Hidden by default */
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: background-color 0.3s ease;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c9302c;
         }
 
-        .admin-mode .delete-btn {
-            opacity: 1;
-            visibility: visible;
+        body.admin-mode .delete-btn {
+            display: flex; /* Show only in admin mode */
         }
 
         .delete-btn svg {
@@ -774,7 +774,7 @@
             height: 16px;
             fill: #fff;
         }
-
+        
         /* ======== NEW: Pagination Controls ======== */
         .pagination-controls {
             display: flex;
@@ -797,16 +797,16 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-            .pagination-btn:hover:not(:disabled) {
-                background-color: var(--gold-dark);
-                transform: translateY(-2px);
-            }
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
-            .pagination-btn:disabled {
-                background-color: var(--warm-gray);
-                cursor: not-allowed;
-                opacity: 0.6;
-            }
+        .pagination-btn:disabled {
+            background-color: var(--warm-gray);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
 
         #page-indicator {
             font-size: 1.1rem;
@@ -931,11 +931,10 @@
             font-size: 1rem;
             text-align: center;
         }
-
-            .modal-content input[type="password"]:focus {
-                outline: none;
-                border-color: var(--gold-main);
-            }
+        .modal-content input[type="password"]:focus {
+            outline: none;
+            border-color: var(--gold-main);
+        }
 
         .modal-close-btn {
             padding: 10px 30px;
@@ -953,25 +952,22 @@
             .modal-close-btn:hover {
                 background-color: var(--gold-dark);
             }
-
+        
         /* NEW: Confirmation Modal Buttons */
         .confirmation-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
         }
-
-            .confirmation-buttons button {
-                flex-grow: 1;
-            }
-
-            .confirmation-buttons #cancel-btn {
-                background-color: var(--warm-gray);
-            }
-
-                .confirmation-buttons #cancel-btn:hover {
-                    background-color: #8a867c;
-                }
+        .confirmation-buttons button {
+            flex-grow: 1;
+        }
+        .confirmation-buttons #cancel-btn {
+            background-color: var(--warm-gray);
+        }
+        .confirmation-buttons #cancel-btn:hover {
+            background-color: #8a867c;
+        }
 
 
         /* ======== تعريف الأنيميشن ======== */
@@ -1297,7 +1293,7 @@
         <div class="section-title-container">
             <h2 class="section-title">سجل الزوار</h2>
             <button id="admin-btn" aria-label="Admin Login">
-                <svg id="admin-icon-svg" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69-.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" /></svg>
+                <svg id="admin-icon-svg" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69-.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59-1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
             </button>
         </div>
         <form class="guestbook-form" id="guestbook-form">
@@ -1343,10 +1339,14 @@
     <div class="modal-overlay" id="custom-modal">
         <div class="modal-content">
             <p id="modal-message"></p>
-            <button class="modal-close-btn" id="modal-close">حسنًا</button>
+            <div class="confirmation-buttons" style="display: none;">
+                <button class="modal-close-btn" id="confirm-btn">تأكيد</button>
+                <button class="modal-close-btn" id="cancel-btn">إلغاء</button>
+            </div>
+            <button class="modal-close-btn" id="modal-ok-btn">حسنًا</button>
         </div>
     </div>
-
+    
     <!-- NEW: Admin Password Modal -->
     <div class="modal-overlay" id="admin-modal">
         <div class="modal-content">
@@ -1369,7 +1369,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            
             // =================================================================
             // START: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
@@ -1381,7 +1381,12 @@
                 messagingSenderId: "323452944198",
                 appId: "1:323452944198:web:33c0f5e44081fdfc1caf47"
             };
-            firebase.initializeApp(firebaseConfig);
+            try {
+                firebase.initializeApp(firebaseConfig);
+                console.log("Firebase Initialized Successfully");
+            } catch (e) {
+                console.error("Error initializing Firebase", e);
+            }
             const db = firebase.firestore();
             const messagesCollection = db.collection('messages');
             // =================================================================
@@ -1391,15 +1396,36 @@
             // Modal Logic
             const modal = document.getElementById('custom-modal');
             const modalMessage = document.getElementById('modal-message');
-            const closeModalBtn = document.getElementById('modal-close');
-            function showModal(message) {
+            const modalOkBtn = document.getElementById('modal-ok-btn');
+            const confirmationButtons = document.querySelector('.confirmation-buttons');
+            const confirmBtn = document.getElementById('confirm-btn');
+            const cancelBtn = document.getElementById('cancel-btn');
+            let confirmCallback = null;
+
+            function showModal(message, isConfirmation = false) {
                 modalMessage.textContent = message;
+                if (isConfirmation) {
+                    modalOkBtn.style.display = 'none';
+                    confirmationButtons.style.display = 'flex';
+                } else {
+                    modalOkBtn.style.display = 'block';
+                    confirmationButtons.style.display = 'none';
+                }
                 modal.classList.add('is-visible');
             }
+
             function closeModal() {
                 modal.classList.remove('is-visible');
             }
-            closeModalBtn.addEventListener('click', closeModal);
+
+            modalOkBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+            confirmBtn.addEventListener('click', () => {
+                if (confirmCallback) {
+                    confirmCallback();
+                }
+                closeModal();
+            });
             modal.addEventListener('click', function (e) {
                 if (e.target === modal) { closeModal(); }
             });
@@ -1565,7 +1591,7 @@
             // =================================================================
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
-
+            
             // --- Pagination Elements ---
             const paginationControls = document.getElementById('pagination-controls');
             const prevPageBtn = document.getElementById('prev-page-btn');
@@ -1615,8 +1641,8 @@
                     showModal('كلمة المرور غير صحيحة.');
                 }
             });
-
-            adminModal.addEventListener('click', function (e) {
+            
+            adminModal.addEventListener('click', function(e) {
                 if (e.target === adminModal) {
                     adminModal.classList.remove('is-visible');
                 }
@@ -1626,7 +1652,7 @@
             // --- Function to render messages for the current page ---
             function renderPage() {
                 messagesContainer.innerHTML = ''; // Clear current messages
-
+                
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
 
                 if (allMessages.length === 0) {
@@ -1634,7 +1660,7 @@
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">كن أول من يترك أمنية جميلة!</p>';
                     return;
                 }
-
+                
                 paginationControls.style.display = 'flex'; // Show controls if messages exist
 
                 const startIndex = (currentPage - 1) * messagesPerPage;
@@ -1667,67 +1693,30 @@
                 messageCard.appendChild(messageText);
                 messageCard.appendChild(messageAuthor);
 
-                // Add delete button if in admin mode
-                if (isAdmin) {
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.classList.add('delete-btn');
-                    deleteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>';
-                    deleteBtn.onclick = () => deleteMessage(id);
-                    messageCard.appendChild(deleteBtn);
-                }
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>';
+                deleteBtn.onclick = () => deleteMessage(id);
+                messageCard.appendChild(deleteBtn);
 
                 messagesContainer.appendChild(messageCard);
             }
 
             // --- Function to delete a message ---
-            async function deleteMessage(id) {
+            function deleteMessage(id) {
                 if (!isAdmin) return;
-
-                showConfirmationModal('هل أنت متأكد من حذف هذه الرسالة؟', async () => {
+                
+                showModal('هل أنت متأكد من حذف هذه الرسالة؟', true);
+                confirmCallback = async () => {
                     try {
                         await messagesCollection.doc(id).delete();
                         showModal('تم حذف الرسالة بنجاح.');
-                        // The onSnapshot listener will automatically re-render the list
                     } catch (error) {
                         console.error("Error removing document: ", error);
                         showModal('حدث خطأ أثناء الحذف. يرجى مراجعة قواعد الأمان في Firebase.');
                     }
-                });
+                };
             }
-
-            // --- NEW: Confirmation Modal Logic ---
-            const confirmationModal = document.getElementById('confirmation-modal');
-            const confirmationMessage = document.getElementById('confirmation-message');
-            const confirmBtn = document.getElementById('confirm-btn');
-            const cancelBtn = document.getElementById('cancel-btn');
-            let confirmCallback = null;
-
-            function showConfirmationModal(message, callback) {
-                confirmationMessage.textContent = message;
-                confirmCallback = callback;
-                confirmationModal.classList.add('is-visible');
-            }
-
-            function closeConfirmationModal() {
-                confirmationModal.classList.remove('is-visible');
-                confirmCallback = null;
-            }
-
-            confirmBtn.addEventListener('click', () => {
-                if (confirmCallback) {
-                    confirmCallback();
-                }
-                closeConfirmationModal();
-            });
-
-            cancelBtn.addEventListener('click', closeConfirmationModal);
-
-            confirmationModal.addEventListener('click', (e) => {
-                if (e.target === confirmationModal) {
-                    closeConfirmationModal();
-                }
-            });
-
 
             // --- Handle form submission to save data to Firestore ---
             guestbookForm.addEventListener('submit', async function (e) {
@@ -1753,13 +1742,13 @@
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-
+                    
                     nameInput.value = '';
                     messageInput.value = '';
                     showModal('شكراً على أمنيتك الجميلة!');
 
                 } catch (error) {
-                    console.error("Error adding document: ", error);
+                    console.error("Firestore Write Error: ", error);
                     showModal('عذراً، حدث خطأ أثناء إرسال الرسالة.');
                 } finally {
                     submitButton.disabled = false;
@@ -1772,8 +1761,8 @@
                 allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 renderPage(); // Render the current page with new data
             }, error => {
-                console.error("Error fetching messages: ", error);
-                messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل.</p>';
+                console.error("Firestore Read Error: ", error);
+                messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل. يرجى التأكد من قواعد الأمان في Firebase.</p>';
             });
 
             // --- Pagination button event listeners ---
@@ -1800,19 +1789,3 @@
 
 </body>
 </html>
-" of the code from the Canvas above and am asking a query about/based on this code below.
-Instructions to follow:
-  * Don't output/edit the document if the query is Direct/Simple. For example, if the query asks for a simple explanation, output a direct answer.
-  * Make sure to **edit** the document if the query shows the intent of editing the document, in which case output the entire edited document, **not just that section or the edits**.
-    * Don't output the same document/empty document and say that you have edited it.
-    * Don't change unrelated code in the document.
-  * Don't output  and  in your final response.
-  * Any references like "this" or "selected code" refers to the code between  and  tags.
-  * Just acknowledge my request in the introduction.
-  * Make sure to refer to the document as "Canvas" in your response.
-
-(actual user query begins now)
-Can you please make some edits to the selected code?
-Here are the edits I want you to make:
-"
-غيرلي الخط المستخدم بالصفحه كامل
