@@ -58,6 +58,7 @@
             font-weight: 700;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
+
         #start-overlay-subtext {
             font-size: 1rem;
             margin-top: 10px;
@@ -102,25 +103,30 @@
             z-index: 102;
         }
 
-        .music-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--gold-main);
-            animation: spin 3s linear infinite;
-            transition: fill 0.3s ease;
-        }
+            .music-btn svg {
+                width: 30px;
+                height: 30px;
+                fill: var(--gold-main);
+                animation: spin 3s linear infinite;
+                transition: fill 0.3s ease;
+            }
 
-        .music-btn:hover svg {
-            fill: var(--gold-dark);
-        }
+            .music-btn:hover svg {
+                fill: var(--gold-dark);
+            }
 
-        .music-btn svg.paused {
-            animation-play-state: paused;
-        }
+            .music-btn svg.paused {
+                animation-play-state: paused;
+            }
 
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* ======== قائمة التنقل (الهامبرغر) ======== */
@@ -666,7 +672,7 @@
                 color: var(--warm-gray);
                 line-height: 1.7;
             }
-        
+
         /* NEW: Location Button Style */
         .location-btn {
             display: inline-block;
@@ -682,10 +688,10 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .location-btn:hover {
-            background-color: var(--gold-dark);
-            transform: translateY(-2px);
-        }
+            .location-btn:hover {
+                background-color: var(--gold-dark);
+                transform: translateY(-2px);
+            }
 
         /* ======== قسم سجل الزوار ======== */
         .guestbook-section {
@@ -784,7 +790,7 @@
                 color: var(--gold-main);
                 text-align: left;
             }
-        
+
         /* ======== NEW: Pagination Controls ======== */
         .pagination-controls {
             display: flex;
@@ -807,16 +813,16 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .pagination-btn:hover:not(:disabled) {
-            background-color: var(--gold-dark);
-            transform: translateY(-2px);
-        }
+            .pagination-btn:hover:not(:disabled) {
+                background-color: var(--gold-dark);
+                transform: translateY(-2px);
+            }
 
-        .pagination-btn:disabled {
-            background-color: var(--warm-gray);
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
+            .pagination-btn:disabled {
+                background-color: var(--warm-gray);
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
 
         #page-indicator {
             font-size: 1.1rem;
@@ -1155,7 +1161,7 @@
     </div>
 
     <!-- NEW: Background Music -->
-    <audio id="bg-music" loop src="https://cdn.pixabay.com/download/audio/2022/02/15/audio_d074da05e2.mp3"></audio>
+    <audio id="bg-music" loop src="https://drive.google.com/file/d/1Hs7Fr_xtI9gRQsH5NZJfjsQgerW2dc7o/view?pli=1"></audio>
 
     <div class="status-bar">
         <button class="hamburger-btn">
@@ -1166,7 +1172,7 @@
         <span class="status-bar-title">Creative Design</span>
         <!-- NEW: Music Toggle Button -->
         <button id="music-toggle-btn" class="music-btn" aria-label="تشغيل/إيقاف الموسيقى">
-            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm-32-280a32 32 0 1 1-64 0 32 32 0 1 1 64 0zm96 0a32 32 0 1 1-64 0 32 32 0 1 1 64 0zM256 304a48 48 0 1 1 0-96 48 48 0 1 1 0 96z"/></svg>
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm-32-280a32 32 0 1 1-64 0 32 32 0 1 1 64 0zm96 0a32 32 0 1 1-64 0 32 32 0 1 1 64 0zM256 304a48 48 0 1 1 0-96 48 48 0 1 1 0 96z" /></svg>
         </button>
     </div>
 
@@ -1340,7 +1346,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             // =================================================================
             // START: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
@@ -1561,7 +1567,7 @@
             // =================================================================
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
-            
+
             // --- Pagination Elements ---
             const paginationControls = document.getElementById('pagination-controls');
             const prevPageBtn = document.getElementById('prev-page-btn');
@@ -1575,7 +1581,7 @@
             // --- Function to render messages for the current page ---
             function renderPage() {
                 messagesContainer.innerHTML = ''; // Clear current messages
-                
+
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
 
                 if (allMessages.length === 0) {
@@ -1583,7 +1589,7 @@
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">كن أول من يترك أمنية جميلة!</p>';
                     return;
                 }
-                
+
                 paginationControls.style.display = 'flex'; // Show controls if messages exist
 
                 // Calculate start and end index for the current page
@@ -1647,7 +1653,7 @@
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-                    
+
                     nameInput.value = '';
                     messageInput.value = '';
                     showModal('شكراً على أمنيتك الجميلة!');
