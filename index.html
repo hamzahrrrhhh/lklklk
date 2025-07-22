@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Rakkas&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Marhey:wght@700&display=swap" rel="stylesheet">
 
     <style>
         /* ======== إعدادات أساسية ======== */
@@ -27,42 +27,8 @@
         }
 
         body {
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             background-color: var(--background-color);
-        }
-
-        /* ======== NEW: Start Overlay ======== */
-        #start-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 9999;
-            cursor: pointer;
-            color: #fff;
-            flex-direction: column;
-            transition: opacity 0.5s ease; /* Added for smooth fade-out */
-        }
-
-        #start-overlay-text {
-            font-family: 'Amiri', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-        }
-
-        #start-overlay-subtext {
-            font-size: 1rem;
-            margin-top: 10px;
-            opacity: 0.8;
         }
 
         /* ======== شريط الحالة العلوي ======== */
@@ -77,7 +43,7 @@
             justify-content: center;
             align-items: center;
             color: var(--gold-main);
-            font-family: 'Rakkas', serif;
+            font-family: 'Marhey', cursive;
             font-size: 1.5rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             background: var(--background-color);
@@ -87,46 +53,6 @@
         .status-bar-title {
             flex-grow: 1;
             text-align: center;
-            margin-right: 40px; /* Space for the music button */
-        }
-
-        /* ======== NEW: Music Toggle Button ======== */
-        .music-btn {
-            position: absolute;
-            right: 20px; /* يسار في RTL */
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 102;
-        }
-
-            .music-btn svg {
-                width: 30px;
-                height: 30px;
-                fill: var(--gold-main);
-                animation: spin 3s linear infinite;
-                transition: fill 0.3s ease;
-            }
-
-            .music-btn:hover svg {
-                fill: var(--gold-dark);
-            }
-
-            .music-btn svg.paused {
-                animation-play-state: paused;
-            }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
         }
 
         /* ======== قائمة التنقل (الهامبرغر) ======== */
@@ -184,7 +110,7 @@
                     .main-nav ul li a {
                         color: #fff;
                         text-decoration: none;
-                        font-family: 'Amiri', serif;
+                        font-family: 'Cairo', sans-serif;
                         font-size: 2rem;
                         font-weight: 700;
                         transition: color 0.3s ease;
@@ -292,7 +218,7 @@
             }
 
             .hero-content h1 {
-                font-family: 'Rakkas', serif; /* تغيير الخط ليتناسب مع العنوان الجديد */
+                font-family: 'Marhey', cursive; /* تغيير الخط ليتناسب مع العنوان الجديد */
                 font-size: 5rem; /* يمكن تكبير الخط قليلاً */
                 font-weight: 700;
                 margin-bottom: 20px;
@@ -321,7 +247,7 @@
         }
 
             .groom-bride-names .name {
-                font-family: 'Rakkas', serif;
+                font-family: 'Marhey', cursive;
                 font-size: 3.2rem;
                 font-weight: 400;
                 color: #fff;
@@ -347,7 +273,7 @@
         }
 
         .countdown-title {
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--gold-main);
@@ -382,7 +308,7 @@
             }
 
             .time-unit .number {
-                font-family: 'Amiri', serif;
+                font-family: 'Cairo', sans-serif;
                 font-size: 2rem;
                 font-weight: 700;
                 color: var(--gold-main);
@@ -503,7 +429,7 @@
 
         .section-title {
             text-align: center;
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold-main);
@@ -609,7 +535,7 @@
                 position: relative;
                 z-index: 1;
                 color: var(--gold-main);
-                font-family: 'Amiri', serif;
+                font-family: 'Cairo', sans-serif;
                 font-size: 2.5rem;
                 font-weight: 700;
                 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -660,7 +586,7 @@
             }
 
             .detail-item h3 {
-                font-family: 'Amiri', serif;
+                font-family: 'Cairo', sans-serif;
                 font-size: 1.8rem;
                 font-weight: 700;
                 color: var(--gold-main);
@@ -682,7 +608,7 @@
             color: #fff;
             border-radius: 8px;
             text-decoration: none;
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -714,7 +640,7 @@
                 border: 2px solid rgba(179, 135, 40, 0.3);
                 border-radius: 10px;
                 background-color: #fff;
-                font-family: 'Amiri', serif;
+                font-family: 'Cairo', sans-serif;
                 font-size: 1rem;
                 color: var(--warm-gray);
                 transition: border-color 0.3s ease;
@@ -737,7 +663,7 @@
                 color: #fff;
                 border: none;
                 border-radius: 10px;
-                font-family: 'Amiri', serif;
+                font-family: 'Cairo', sans-serif;
                 font-size: 1.1rem;
                 font-weight: 700;
                 cursor: pointer;
@@ -806,7 +732,7 @@
             color: #fff;
             border: none;
             border-radius: 8px;
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
@@ -942,7 +868,7 @@
             color: #fff;
             border: none;
             border-radius: 8px;
-            font-family: 'Amiri', serif;
+            font-family: 'Cairo', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
@@ -1154,15 +1080,6 @@
     </style>
 </head>
 <body>
-    <!-- NEW: Start Overlay -->
-    <div id="start-overlay">
-        <p id="start-overlay-text">انقر لبدء التجربة</p>
-        <p id="start-overlay-subtext">(مع موسيقى)</p>
-    </div>
-
-    <!-- NEW: Background Music -->
-    <audio id="bg-music" loop src="https://drive.google.com/file/d/1Hs7Fr_xtI9gRQsH5NZJfjsQgerW2dc7o/view?pli=1"></audio>
-
     <div class="status-bar">
         <button class="hamburger-btn">
             <span class="bar"></span>
@@ -1170,10 +1087,6 @@
             <span class="bar"></span>
         </button>
         <span class="status-bar-title">Creative Design</span>
-        <!-- NEW: Music Toggle Button -->
-        <button id="music-toggle-btn" class="music-btn" aria-label="تشغيل/إيقاف الموسيقى">
-            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm-32-280a32 32 0 1 1-64 0 32 32 0 1 1 64 0zm96 0a32 32 0 1 1-64 0 32 32 0 1 1 64 0zM256 304a48 48 0 1 1 0-96 48 48 0 1 1 0 96z" /></svg>
-        </button>
     </div>
 
     <nav class="main-nav">
@@ -1364,31 +1277,6 @@
             // =================================================================
             // END: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
-
-            // NEW: Music and Overlay Logic
-            const startOverlay = document.getElementById('start-overlay');
-            const bgMusic = document.getElementById('bg-music');
-            const musicToggleBtn = document.getElementById('music-toggle-btn');
-            const musicIcon = musicToggleBtn.querySelector('svg');
-
-            startOverlay.addEventListener('click', () => {
-                bgMusic.play().catch(error => console.log("Autoplay was prevented.", error));
-                startOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    startOverlay.style.display = 'none';
-                }, 500); // Match transition duration
-            }, { once: true });
-
-            musicToggleBtn.addEventListener('click', () => {
-                if (bgMusic.paused) {
-                    bgMusic.play();
-                    musicIcon.classList.remove('paused');
-                } else {
-                    bgMusic.pause();
-                    musicIcon.classList.add('paused');
-                }
-            });
-
 
             // Modal Logic (No changes here)
             const modal = document.getElementById('custom-modal');
@@ -1700,4 +1588,4 @@
     </script>
 
 </body>
-</ht
+</html>
