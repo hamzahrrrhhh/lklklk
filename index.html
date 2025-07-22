@@ -598,6 +598,26 @@
                 color: var(--warm-gray);
                 line-height: 1.7;
             }
+        
+        /* NEW: Location Button Style */
+        .location-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: var(--gold-main);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .location-btn:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
         /* ======== قسم سجل الزوار ======== */
         .guestbook-section {
@@ -696,7 +716,7 @@
                 color: var(--gold-main);
                 text-align: left;
             }
-
+        
         /* ======== NEW: Pagination Controls ======== */
         .pagination-controls {
             display: flex;
@@ -719,16 +739,16 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-            .pagination-btn:hover:not(:disabled) {
-                background-color: var(--gold-dark);
-                transform: translateY(-2px);
-            }
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
 
-            .pagination-btn:disabled {
-                background-color: var(--warm-gray);
-                cursor: not-allowed;
-                opacity: 0.6;
-            }
+        .pagination-btn:disabled {
+            background-color: var(--warm-gray);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
 
         #page-indicator {
             font-size: 1.1rem;
@@ -1083,21 +1103,16 @@
     <section id="hero-section" class="hero-section">
         <div class="slideshow-container">
             <div class="slide active">
-                <img src="https://images.pexels.com/photos/32631731/pexels-photo-32631731.jpeg" alt="خلفية شريحة عرض 1">
+                <img src="https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="خلفية شريحة عرض 1">
             </div>
-
-            <div class="slide active">
-                <img src="https://images.pexels.com/photos/29175678/pexels-photo-29175678.jpeg" alt="خلفية شريحة عرض 1">
-            </div>
-
             <div class="slide">
-                <img src="https://images.pexels.com/photos/21820801/pexels-photo-21820801.jpeg" alt="خلفية شريحة عرض 2">
+                <img src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="خلفية شريحة عرض 2">
             </div>
             <div class="slide">
                 <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="خلفية شريحة عرض 3">
             </div>
             <div class="slide">
-                <img src="https://images.pexels.com/photos/27731414/pexels-photo-27731414.jpeg" alt="خلفية شريحة عرض 4">
+                <img src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="خلفية شريحة عرض 4">
             </div>
         </div>
         <div class="hero-overlay"></div>
@@ -1179,6 +1194,7 @@
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg>
                 <h3>الموقع</h3>
                 <p>قاعة بانوراما، عمان, الأردن</p>
+                <a href="https://maps.app.goo.gl/qzFRzuZus6zs3QP58" target="_blank" class="location-btn">موقع الصاله</a>
             </div>
         </div>
     </section>
@@ -1244,7 +1260,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            
             // =================================================================
             // START: FIREBASE CONFIGURATION & INITIALIZATION
             // =================================================================
@@ -1441,7 +1457,7 @@
             // =================================================================
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
-
+            
             // --- Pagination Elements ---
             const paginationControls = document.getElementById('pagination-controls');
             const prevPageBtn = document.getElementById('prev-page-btn');
@@ -1455,7 +1471,7 @@
             // --- Function to render messages for the current page ---
             function renderPage() {
                 messagesContainer.innerHTML = ''; // Clear current messages
-
+                
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
 
                 if (allMessages.length === 0) {
@@ -1463,7 +1479,7 @@
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">كن أول من يترك أمنية جميلة!</p>';
                     return;
                 }
-
+                
                 paginationControls.style.display = 'flex'; // Show controls if messages exist
 
                 // Calculate start and end index for the current page
@@ -1527,7 +1543,7 @@
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-
+                    
                     nameInput.value = '';
                     messageInput.value = '';
                     showModal('شكراً على أمنيتك الجميلة!');
