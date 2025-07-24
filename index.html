@@ -615,9 +615,9 @@
             z-index: 1;
             opacity: 0;
             transition: opacity 0.4s ease;
-            /* Fading edges effect */
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            /* Fading edges effect with reduced percentage */
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             -webkit-mask-composite: destination-in;
             mask-composite: intersect;
         }
@@ -1463,7 +1463,7 @@
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.75,13.96C17,14.26 17.07,14.73 16.96,15.17C16.86,15.61 16.56,16 16.21,16.35C15.88,16.69 15.45,16.93 15,17.04C14.55,17.15 14.04,17.2 13.53,17.09C12.82,16.92 12.03,16.6 11.16,16.14C9.89,15.44 8.78,14.44 7.89,13.21C7.1,12.1 6.56,11.04 6.27,9.94C6.08,9.23 6,8.5 6.03,7.75C6.07,7.26 6.21,6.8 6.45,6.38C6.69,5.96 7.03,5.62 7.42,5.36C7.81,5.11 8.22,5 8.65,5H9.3C9.63,5 9.93,5.1 10.16,5.29C10.39,5.48 10.58,5.72 10.7,6C10.91,6.41 11.11,6.84 11.29,7.28C11.34,7.41 11.36,7.55 11.37,7.68C11.37,7.83 11.34,7.98 11.27,8.14L10.8,9.04C10.7,9.21 10.66,9.36 10.66,9.48C10.66,9.59 10.68,9.69 10.72,9.78C10.93,10.24 11.27,10.73 11.75,11.25C12.25,11.75 12.73,12.09 13.22,12.28C13.31,12.32 13.41,12.34 13.53,12.34C13.66,12.34 13.81,12.3 13.96,12.2L14.86,11.73C15.02,11.66 15.17,11.63 15.31,11.63C15.45,11.63 15.58,11.65 15.71,11.7C16.16,11.87 16.59,12.07 17,12.29C17.28,12.41 17.52,12.59 17.71,12.82C17.9,13.05 18,13.32 18,13.65V14.24L17.75,13.96M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C10.84,22 9.7,21.76 8.6,21.31L4,22.5L5.19,17.9C4.24,16.54 3.54,14.9 3.54,13.14L3.5,13A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" /></svg>
                 </a>
                 <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.32 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66,21.21 10.44,21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.32 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg>
                 </a>
                 <button id="share-btn" aria-label="Share">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L16.04,7.15C16.56,7.62 17.24,7.92 18,7.92C19.66,7.92 21,6.58 21,5C21,3.42 19.66,2 18,2C16.34,2 15,3.42 15,5C15,5.24 15.04,5.47 15.09,5.7L7.96,9.85C7.44,9.38 6.76,9.08 6,9.08C4.34,9.08 3,10.42 3,12C3,13.58 4.34,14.92 6,14.92C6.76,14.92 7.44,14.62 7.96,14.15L15.09,18.3C15.04,18.53 15,18.76 15,19C15,20.58 16.34,22 18,22C19.66,22 21,20.58 21,19C21,17.42 19.66,16.08 18,16.08Z" /></svg>
