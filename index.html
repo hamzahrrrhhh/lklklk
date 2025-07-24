@@ -602,7 +602,7 @@
                 display: none;
             }
 
-        /* START: Fading Glass Box Solution */
+        /* START: Fading Glass Box Solution with Golden Haze */
         .glass-backdrop {
             position: absolute;
             top: 0;
@@ -614,8 +614,7 @@
             -webkit-backdrop-filter: blur(10px);
             z-index: 1;
             opacity: 0;
-            transition: opacity 0.4s ease;
-            /* Fading edges effect with reduced percentage */
+            transition: opacity 0.4s, box-shadow 0.4s;
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             -webkit-mask-composite: destination-in;
@@ -625,8 +624,9 @@
         body.theme-navy .glass-backdrop,
         body.theme-green .glass-backdrop {
             opacity: 1;
+            box-shadow: inset 0 0 50px 20px rgba(179, 135, 40, 0.2); /* Golden Haze Effect */
         }
-        /* END: Fading Glass Box Solution */
+        /* END: Fading Glass Box Solution with Golden Haze */
 
         /* ======== قسم تفاصيل الحفل ======== */
         .event-details-section {
