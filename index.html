@@ -7,7 +7,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- تم تغيير الخطوط هنا -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -29,7 +28,6 @@
         }
 
         body {
-            /* تم تغيير الخط الأساسي هنا */
             font-family: 'Amiri', serif;
             background-color: var(--background-color);
         }
@@ -46,9 +44,8 @@
             justify-content: center;
             align-items: center;
             color: var(--gold-main);
-            /* تم تغيير خط العنوان هنا */
             font-family: 'Aref Ruqaa', serif;
-            font-size: 1.8rem; /* تعديل حجم الخط ليتناسب مع الخط الجديد */
+            font-size: 1.8rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             background: var(--background-color);
             border-bottom: 1px solid rgba(179, 135, 40, 0.2);
@@ -66,7 +63,7 @@
             cursor: pointer;
             padding: 10px;
             position: absolute;
-            left: 20px; /* يمين في RTL */
+            left: 20px;
             z-index: 101;
         }
 
@@ -130,7 +127,7 @@
         .close-btn {
             position: absolute;
             top: 30px;
-            right: 30px; /* يسار في RTL */
+            right: 30px;
             background: none;
             border: none;
             color: #fff;
@@ -225,7 +222,7 @@
 
             .hero-content h1 {
                 font-family: 'Aref Ruqaa', serif;
-                font-size: 6rem; /* تكبير الخط ليتناسب مع الخط الجديد */
+                font-size: 6rem;
                 font-weight: 700;
                 margin-bottom: 20px;
                 line-height: 1.4;
@@ -238,7 +235,7 @@
             }
 
             .hero-content p {
-                font-size: 1.4rem; /* تكبير الخط قليلاً */
+                font-size: 1.4rem;
                 color: var(--warm-white);
                 margin-bottom: 25px;
                 line-height: 1.8;
@@ -274,7 +271,7 @@
         .details-section {
             background-color: var(--background-color);
             position: relative;
-            height: 70px; /* تقليل ارتفاع القسم ليصبح فاصلاً */
+            height: 70px;
             overflow: visible;
         }
 
@@ -322,12 +319,11 @@
             }
 
             .time-unit .label {
-                font-size: 0.8rem; /* تكبير الخط قليلاً */
+                font-size: 0.8rem;
                 color: var(--warm-gray);
                 margin-top: 5px;
             }
 
-        /* --- تعديلات العداد الزمني في القسم الأول --- */
         .hero-countdown {
             position: absolute;
             bottom: 5vh;
@@ -345,11 +341,11 @@
         }
 
         .hero-section .time-unit {
-            background: rgba(255, 255, 255, 0.15); /* خلفية زجاجية */
-            backdrop-filter: blur(10px); /* التأثير الضبابي */
-            -webkit-backdrop-filter: blur(10px); /* لدعم متصفح سفاري */
-            border: 2px solid rgba(255, 255, 255, 0.2); /* إطار خفيف */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
             .hero-section .time-unit .number {
@@ -372,14 +368,14 @@
             pointer-events: none;
         }
 
-        /* ======== فاصل الأقسام الأنيق (التعديل الجديد) ======== */
+        /* ======== فاصل الأقسام ======== */
         .album-section,
         .final-image-section,
         .event-details-section,
         .guestbook-section,
         .site-footer {
             position: relative;
-            border-top: none; /* إزالة الخط القديم */
+            border-top: none;
         }
 
         .album-section {
@@ -389,7 +385,7 @@
         .final-image-section {
             padding-top: 0;
         }
-        
+
         .event-details-section {
             padding: 120px 20px 80px;
         }
@@ -421,13 +417,14 @@
             }
 
         .final-image-section::before {
-            top: 5vh; /* تعديل الموضع ليناسب القسم كامل الشاشة */
+            top: 5vh;
         }
 
-
-        /* ======== قسم الألبوم الجديد ======== */
+        /* ======== قسم الألبوم المعدل ======== */
         .album-section {
             background-color: var(--background-color);
+            padding: 120px 0 80px;
+            position: relative;
             overflow: hidden;
         }
 
@@ -437,27 +434,38 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--gold-main);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+        }
+
+        .album-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .album-carousel {
             position: relative;
-            width: 100%;
-            height: 350px;
-            perspective: 1200px;
+            width: 280px;
+            height: 380px;
+            perspective: 1500px;
+            transform-style: preserve-3d;
         }
 
         .album-card {
             position: absolute;
-            width: 240px;
-            height: 320px;
-            top: 10px;
-            left: 50%;
-            transform-style: preserve-3d;
-            transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out, z-index 0.7s ease-in-out;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: center;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 4px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 5px solid #fff;
+            overflow: hidden;
         }
 
             .album-card img {
@@ -465,48 +473,51 @@
                 height: 100%;
                 object-fit: cover;
                 border-radius: 10px;
+                user-select: none;
+            }
+
+            .album-card:not(.active-card) {
+                filter: brightness(0.6);
             }
 
         .album-nav {
-            text-align: center;
-            margin-top: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 10;
+            pointer-events: none;
         }
 
         .nav-btn {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.5);
             border: none;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             z-index: 10;
-            padding: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: all;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
             .nav-btn:hover {
+                background-color: #fff;
                 transform: scale(1.1);
             }
 
         .nav-icon {
-            width: 120px;
+            width: 24px;
             height: auto;
-        }
-
-            .nav-icon path, .nav-icon polyline {
-                fill: var(--gold-light);
-                stroke: var(--gold-light);
-                transition: fill 0.3s ease, stroke 0.3s ease;
-            }
-
-        .nav-btn:hover .nav-icon path,
-        .nav-btn:hover .nav-icon polyline {
-            fill: var(--gold-main);
             stroke: var(--gold-main);
-        }
-
-        .nav-icon polyline {
-            fill: none;
+            stroke-width: 3;
         }
 
         /* ======== قسم الصورة الختامية ======== */
@@ -563,40 +574,62 @@
             width: 90%;
             max-width: 450px;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out; /* --- تعديل الأنيميشن --- */
+            opacity: 0; /* --- تعديل الأنيميشن: إخفاء الصناديق في البداية --- */
+            transform: translateY(40px); /* --- تعديل الأنيميشن: تحريكها للأسفل --- */
         }
 
-            .detail-item:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 25px rgba(179, 135, 40, 0.15);
+        /* --- START: تعديل الأنيميشن --- */
+        .details-container.is-visible .detail-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+            .details-container.is-visible .detail-item:nth-child(1) {
+                transition-delay: 0.1s;
             }
 
-            .detail-item .icon {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 5px;
-                fill: var(--gold-main);
+            .details-container.is-visible .detail-item:nth-child(2) {
+                transition-delay: 0.3s;
             }
 
-            .detail-item h3 {
-                font-family: 'Aref Ruqaa', serif;
-                font-size: 2rem;
-                font-weight: 700;
-                color: var(--gold-main);
-                margin-bottom: 10px;
+            .details-container.is-visible .detail-item:nth-child(3) {
+                transition-delay: 0.5s;
             }
+        /* --- END: تعديل الأنيميشن --- */
 
-            .detail-item p {
-                font-size: 1.3rem;
-                color: var(--warm-gray);
-                line-height: 1.8;
-            }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(179, 135, 40, 0.2);
+        }
+
+        .detail-item .icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 5px;
+            fill: var(--gold-main);
+        }
+
+        .detail-item h3 {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-main);
+            margin-bottom: 10px;
+        }
+
+        .detail-item p {
+            font-size: 1.3rem;
+            color: var(--warm-gray);
+            line-height: 1.8;
+        }
 
         .location-btn {
             display: inline-block;
@@ -717,7 +750,7 @@
         .delete-btn {
             position: absolute;
             top: 10px;
-            left: 10px; /* يمين في RTL */
+            left: 10px;
             background: var(--danger-red);
             border: none;
             border-radius: 50%;
@@ -1049,6 +1082,16 @@
                 padding: 80px 0 40px;
             }
 
+            .album-carousel-container {
+                height: 350px;
+            }
+
+            .album-carousel {
+                width: 220px;
+                height: 300px;
+            }
+
+
             .event-details-section {
                 padding: 80px 20px 40px;
             }
@@ -1074,31 +1117,6 @@
             .section-title {
                 font-size: 2.5rem;
                 margin-bottom: 25px;
-            }
-
-            .album-carousel {
-                height: 65vh;
-                perspective: none;
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .album-card {
-                position: static;
-                transform: none !important;
-                opacity: 1 !important;
-                z-index: 1 !important;
-                width: 90%;
-                height: 95%;
-                flex-shrink: 0;
-                margin: 0 5%;
-                scroll-snap-align: center;
-                left: auto;
-                top: auto;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             }
 
             .final-image-section .content {
@@ -1148,12 +1166,12 @@
     </div>
 
     <nav class="main-nav">
-        <button class="close-btn">&times;</button>
+        <button class="close-btn">×</button>
         <ul>
-            <li><a href="#hero-section" class="nav-link">الدعوة</a></li>
+            <li><a href="#final-image-section" class="nav-link">الدعوة</a></li>
             <li><a href="#album-section" class="nav-link">ألبوم الصور</a></li>
             <li><a href="#event-details-section" class="nav-link">تفاصيل الحفل</a></li>
-            <li><a href="#guestbook-section" class="nav-link">سجل الزوار</a></li>
+            <li><a href="#guestbook-section" class="nav-link">رسائل التهنئة</a></li>
         </ul>
     </nav>
 
@@ -1177,9 +1195,9 @@
             <h1>دعوة زفاف</h1>
             <p>نتشرف بدعوتكم لمشاركتنا فرحتنا</p>
             <div class="groom-bride-names">
-                <span class="name">فاطمة</span>
-                <span class="separator">&</span>
                 <span class="name">أحمد</span>
+                <span class="separator">&</span>
+                <span class="name">سيرين</span>
             </div>
         </div>
 
@@ -1211,24 +1229,27 @@
     </section>
 
     <section id="album-section" class="album-section">
-        <h2 class="section-title">أجمل لحظاتنا</h2>
-        <div class="album-carousel">
-        </div>
-        <div class="album-nav">
-            <button class="nav-btn" id="album-nav-btn">
-                <svg class="nav-icon" viewBox="0 0 100 40">
-                    <g>
-                        <path transform="translate(0, 8) rotate(90, 12, 12)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        <polyline points="25 20, 40 20, 45 15, 55 25, 60 20, 75 20" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path transform="translate(76, 8) rotate(-90, 12, 12)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </g>
-                </svg>
-            </button>
+        <h2 class="section-title">أالبوم الصور</h2>
+        <div class="album-carousel-container">
+            <div class="album-carousel" id="album-carousel">
+            </div>
+            <div class="album-nav">
+                <button class="nav-btn" id="album-prev-btn" aria-label="الصورة السابقة">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="nav-btn" id="album-next-btn" aria-label="الصورة التالية">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
 
     <section id="final-image-section" class="final-image-section">
-        <img class="bg-image" src="https://dl.dropboxusercontent.com/scl/fi/2853ve50uwufm6uwcqaf2/r.png?rlkey=izo4gwknlf9nwnu7gidy2dcck&st=sywtwgfh&dl=0" alt="خلفية ختامية">
+        <img class="bg-image" src="https://dl.dropboxusercontent.com/scl/fi/822y1d52fqtdjlc09g9ym/P.png?rlkey=9f970glxgwrz9h26liwzf0jcb" alt="خلفية ختامية">
         <div class="content">
 
         </div>
@@ -1240,7 +1261,7 @@
             <div class="detail-item">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,4H18V2H16V4H8V2H6V4H5A2,2 0 0,0 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V10H19V20M19,8H5V6H19V8M12,13H17V18H12V13Z" /></svg>
                 <h3>التاريخ</h3>
-                <p>الجمعة، ٢٥ ديسمبر ٢٠٢٥</p>
+                <p>الخميس، ٢٥ أيلول ٢٠٢٥</p>
             </div>
             <div class="detail-item">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" /></svg>
@@ -1258,7 +1279,7 @@
 
     <section id="guestbook-section" class="guestbook-section">
         <div class="section-title-container">
-            <h2 class="section-title">سجل الزوار</h2>
+            <h2 class="section-title">أكتب تهنئة للعرسان</h2>
             <button id="admin-btn" aria-label="Admin Login">
                 <svg id="admin-icon-svg" viewBox="0 0 24 24">
                     <path d="M14.6,3.2C13.1,1.7,10.9,1.3,9,2.4L2.4,9c-1.9,1.1-2.3,3.8-1.1,5.7c1.1,1.9,3.8,2.3,5.7,1.1l1.6-0.9v3.6h2v-4.6l-1.1,0.6 c-1.1,0.7-2.6,0.4-3.3-0.7c-0.7-1.1-0.4-2.6,0.7-3.3l6.6-3.8C14.7,6.1,16,6.8,16,8.2V10h2V8.2C18,6.1,16.5,4.3,14.6,3.2z M18,12h-4v2h4v2h-2v2h2v2h-4v2h4c1.1,0,2-0.9,2-2v-6C20,12.9,19.1,12,18,12z" />
@@ -1267,11 +1288,10 @@
         </div>
         <form class="guestbook-form" id="guestbook-form">
             <input type="text" id="guest-name" placeholder="الاسم الكريم" required>
-            <textarea id="guest-message" placeholder="اترك لنا أمنية جميلة..." required></textarea>
-            <button type="submit">إرسال الأمنية</button>
+            <textarea id="guest-message" placeholder="اترك لنا تهنئة جميلة..." required></textarea>
+            <button type="submit">إرسال التهنئة</button>
         </form>
         <div class="messages-container" id="messages-container">
-            <!-- سيتم إضافة الرسائل هنا بواسطة جافاسكريبت -->
         </div>
         <div class="pagination-controls" id="pagination-controls">
             <button id="prev-page-btn" class="pagination-btn">السابق</button>
@@ -1323,23 +1343,19 @@
         </div>
     </div>
 
-
-    <!-- ================================================================= -->
-    <!-- START: FIREBASE LIBRARIES -->
-    <!-- ================================================================= -->
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-    <!-- ================================================================= -->
-    <!-- END: FIREBASE LIBRARIES -->
-    <!-- ================================================================= -->
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // =================================================================
-            // START: FIREBASE CONFIGURATION & INITIALIZATION
-            // =================================================================
+            // ========================= START: التعديل الأول =========================
+            // تحديد معرّف فريد لهذه الدعوة.
+            // !! يجب تغيير هذا المعرّف لكل دعوة جديدة !!
+            const invitationId = "ahmad-and-serine-2025";
+            // ========================== END: التعديل الأول ==========================
+
+
             const firebaseConfig = {
                 apiKey: "AIzaSyB1pMv9fIJU6UlEik_wIvEWhmoq6Y8o0es",
                 authDomain: "wedding-invitation-guestbook.firebaseapp.com",
@@ -1356,11 +1372,7 @@
             }
             const db = firebase.firestore();
             const messagesCollection = db.collection('messages');
-            // =================================================================
-            // END: FIREBASE CONFIGURATION & INITIALIZATION
-            // =================================================================
 
-            // Modal Logic
             const modal = document.getElementById('custom-modal');
             const modalMessage = document.getElementById('modal-message');
             const modalOkBtn = document.getElementById('modal-ok-btn');
@@ -1397,8 +1409,6 @@
                 if (e.target === modal) { closeModal(); }
             });
 
-
-            // Hamburger Menu Logic
             const hamburgerBtn = document.querySelector('.hamburger-btn');
             const navMenu = document.querySelector('.main-nav');
             const closeBtn = document.querySelector('.close-btn');
@@ -1417,8 +1427,6 @@
                 });
             });
 
-
-            // Slideshow logic
             const slides = document.querySelectorAll('.slide');
             let currentSlide = 0;
             if (slides.length > 0) {
@@ -1434,9 +1442,8 @@
                 setInterval(nextSlide, 5000);
             }
 
-            // Countdown timer logic
             const countdown = () => {
-                const weddingDate = new Date("December 25, 2025 20:00:00").getTime();
+                const weddingDate = new Date("september 25, 2025 20:00:00").getTime();
                 const now = new Date().getTime();
                 const gap = weddingDate - now;
 
@@ -1462,78 +1469,83 @@
             };
             const countdownInterval = setInterval(countdown, 1000);
             countdown();
-
-            // Album Carousel Logic
-            const albumCarousel = document.querySelector('.album-carousel');
-            const navBtn = document.getElementById('album-nav-btn');
+            /* ======== w,v صور العريس ======== */
+            const albumCarousel = document.getElementById('album-carousel');
+            const prevBtn = document.getElementById('album-prev-btn');
+            const nextBtn = document.getElementById('album-next-btn');
             const images = [
                 'https://dl.dropboxusercontent.com/scl/fi/uuswld9j4vyombj0clbkr/IMG-20250722-WA0004.jpg?rlkey=vlrj25kmy4tnnv84oiegqa73m&dl=0',
                 'https://dl.dropboxusercontent.com/scl/fi/rndo1z24ktieqc9m9wi5d/A2.jpg?rlkey=t8ff4n9ewvdw8vhvq2sv83dzm&st=hqbe2mc4&dl=0',
-                'https://dl.dropboxusercontent.com/scl/fi/u8rad4m9dyxpju3lftq8n/A3.jpg?rlkey=b3er8qwloykneo8x5y14wzix5&st=p71aftkc&dl=0',
-            ];
+                'https://dl.dropboxusercontent.com/scl/fi/u8rad4m9dyxpju3lftq8n/A3.jpg?rlkey=b3er8qwloykneo8x5y14wzix5&st=p71aftkc&dl=0'
 
-            if (albumCarousel && navBtn) {
-                images.forEach(src => {
+            ];
+            if (albumCarousel && prevBtn && nextBtn) {
+                images.forEach((src, i) => {
                     const card = document.createElement('div');
                     card.classList.add('album-card');
+                    card.dataset.index = i;
                     const img = document.createElement('img');
                     img.src = src;
-                    img.alt = 'صورة من الألبوم';
+                    img.alt = 'صورة من الألبوم رقم ' + (i + 1);
                     img.onerror = function () { this.src = 'https://placehold.co/600x800/fdfaf2/b38728?text=Image+Not+Found'; };
                     card.appendChild(img);
                     albumCarousel.appendChild(card);
                 });
-
                 const albumCards = document.querySelectorAll('.album-card');
                 let currentCardIndex = 0;
-                const isMobileView = () => window.innerWidth <= 768;
-                function nextCard() {
-                    currentCardIndex = (currentCardIndex + 1) % albumCards.length;
-                    updateView();
-                }
-                function prevCard() {
-                    currentCardIndex = (currentCardIndex - 1 + albumCards.length) % albumCards.length;
-                    updateView();
-                }
-                function updateView() {
+                let autoPlayInterval;
+                function updateCarousel() {
                     albumCards.forEach((card, i) => {
-                        const offset = (i - currentCardIndex + albumCards.length) % albumCards.length;
-                        let transform = '', opacity = 0.4, zIndex = 0;
-                        switch (offset) {
-                            case 0: transform = 'translateX(-50%) scale(1) rotateY(0)'; opacity = 1; zIndex = 2; break;
-                            case 1: transform = 'translateX(-25%) scale(0.8) rotateY(-45deg)'; zIndex = 1; break;
-                            case albumCards.length - 1: transform = 'translateX(-75%) scale(0.8) rotateY(45deg)'; zIndex = 1; break;
-                            default: transform = `translateX(-50%) scale(0.6) rotateY(0)`; opacity = 0; break;
+                        const offset = (i - currentCardIndex + images.length) % images.length;
+                        let transform = '';
+                        let opacity = '1';
+                        if (offset === 0) {
+                            transform = 'translateX(0) scale(1) translateZ(0)';
+                            card.classList.add('active-card');
+                        } else if (offset === 1) {
+                            transform = 'translateX(50%) scale(0.8) translateZ(-150px) rotateY(-45deg)';
+                            card.classList.remove('active-card');
+                        } else if (offset === images.length - 1) {
+                            transform = 'translateX(-50%) scale(0.8) translateZ(-150px) rotateY(45deg)';
+                            card.classList.remove('active-card');
+                        } else {
+                            transform = `translateX(0) scale(0.6) translateZ(-300px)`;
+                            opacity = '0';
+                            card.classList.remove('active-card');
                         }
                         card.style.transform = transform;
                         card.style.opacity = opacity;
-                        card.style.zIndex = zIndex;
+                        card.style.zIndex = images.length - Math.min(offset, images.length - offset);
                     });
                 }
-                navBtn.addEventListener('click', function (event) {
-                    const rect = navBtn.getBoundingClientRect();
-                    const clickX = event.clientX - rect.left;
-                    const buttonWidth = navBtn.offsetWidth;
-                    if (isMobileView()) {
-                        if (clickX < buttonWidth / 2) { albumCarousel.scrollBy({ left: -albumCarousel.clientWidth, behavior: 'smooth' }); }
-                        else { albumCarousel.scrollBy({ left: albumCarousel.clientWidth, behavior: 'smooth' }); }
-                    } else {
-                        if (clickX < buttonWidth / 2) { prevCard(); } else { nextCard(); }
-                    }
-                });
-                function setupAlbum() {
-                    if (!isMobileView()) {
-                        updateView();
-                        let autoPlayInterval = setInterval(nextCard, 5000);
-                        albumCarousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-                        albumCarousel.addEventListener('mouseleave', () => autoPlayInterval = setInterval(nextCard, 5000));
-                    }
+                function showNext() {
+                    currentCardIndex = (currentCardIndex + 1) % images.length;
+                    updateCarousel();
                 }
-                setupAlbum();
-                window.addEventListener('resize', setupAlbum);
+                function showPrev() {
+                    currentCardIndex = (currentCardIndex - 1 + images.length) % images.length;
+                    updateCarousel();
+                }
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    autoPlayInterval = setInterval(showNext, 4000);
+                }
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+                nextBtn.addEventListener('click', () => {
+                    showNext();
+                    stopAutoPlay();
+                });
+                prevBtn.addEventListener('click', () => {
+                    showPrev();
+                    stopAutoPlay();
+                });
+                albumCarousel.addEventListener('mouseenter', stopAutoPlay);
+                updateCarousel();
+                startAutoPlay();
             }
 
-            // Share Button Logic
             const shareBtn = document.getElementById('share-btn');
             if (shareBtn) {
                 shareBtn.addEventListener('click', async () => {
@@ -1552,21 +1564,36 @@
                 });
             }
 
+            const detailsContainer = document.querySelector('.details-container');
+            if (detailsContainer) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.2
+                };
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            detailsContainer.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+                const detailsObserver = new IntersectionObserver(observerCallback, observerOptions);
+                detailsObserver.observe(detailsContainer);
+            }
 
-            // Guestbook Logic
             const guestbookForm = document.getElementById('guestbook-form');
             const messagesContainer = document.getElementById('messages-container');
             const paginationControls = document.getElementById('pagination-controls');
             const prevPageBtn = document.getElementById('prev-page-btn');
             const nextPageBtn = document.getElementById('next-page-btn');
             const pageIndicator = document.getElementById('page-indicator');
-
             let allMessages = [];
             let currentPage = 1;
             const messagesPerPage = 5;
             let isAdmin = false;
             const ADMIN_PASSWORD = "1234";
-
             const adminBtn = document.getElementById('admin-btn');
             const adminModal = document.getElementById('admin-modal');
             const adminPasswordInput = document.getElementById('admin-password-input');
@@ -1574,7 +1601,6 @@
             const adminIconSvg = document.getElementById('admin-icon-svg');
             const loginIconPath = "M14.6,3.2C13.1,1.7,10.9,1.3,9,2.4L2.4,9c-1.9,1.1-2.3,3.8-1.1,5.7c1.1,1.9,3.8,2.3,5.7,1.1l1.6-0.9v3.6h2v-4.6l-1.1,0.6 c-1.1,0.7-2.6,0.4-3.3-0.7c-0.7-1.1-0.4-2.6,0.7-3.3l6.6-3.8C14.7,6.1,16,6.8,16,8.2V10h2V8.2C18,6.1,16.5,4.3,14.6,3.2z M18,12h-4v2h4v2h-2v2h2v2h-4v2h4c1.1,0,2-0.9,2-2v-6C20,12.9,19.1,12,18,12z";
             const logoutIconPath = "M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z";
-
             adminBtn.addEventListener('click', () => {
                 if (isAdmin) {
                     isAdmin = false;
@@ -1587,7 +1613,6 @@
                     adminPasswordInput.focus();
                 }
             });
-
             adminSubmitBtn.addEventListener('click', () => {
                 if (adminPasswordInput.value === ADMIN_PASSWORD) {
                     isAdmin = true;
@@ -1601,67 +1626,51 @@
                     showModal('كلمة المرور غير صحيحة.');
                 }
             });
-
             adminModal.addEventListener('click', function (e) {
                 if (e.target === adminModal) {
                     adminModal.classList.remove('is-visible');
                 }
             });
-
             function renderPage() {
                 messagesContainer.innerHTML = '';
-
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
-
                 if (allMessages.length === 0) {
                     paginationControls.style.display = 'none';
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">كن أول من يترك أمنية جميلة!</p>';
                     return;
                 }
-
                 paginationControls.style.display = 'flex';
-
                 const startIndex = (currentPage - 1) * messagesPerPage;
                 const endIndex = startIndex + messagesPerPage;
                 const pageMessages = allMessages.slice(startIndex, endIndex);
-
                 pageMessages.forEach(msg => {
                     createMessageCard(msg.id, msg.name, msg.message);
                 });
-
                 pageIndicator.textContent = `صفحة ${currentPage} / ${totalPages}`;
                 prevPageBtn.disabled = currentPage === 1;
                 nextPageBtn.disabled = currentPage === totalPages;
             }
-
             function createMessageCard(id, name, message) {
                 const messageCard = document.createElement('div');
                 messageCard.classList.add('message-card');
                 messageCard.dataset.id = id;
-
                 const messageText = document.createElement('p');
                 messageText.classList.add('message-text');
                 messageText.textContent = `"${message}"`;
-
                 const messageAuthor = document.createElement('p');
                 messageAuthor.classList.add('message-author');
                 messageAuthor.textContent = `- ${name}`;
-
                 messageCard.appendChild(messageText);
                 messageCard.appendChild(messageAuthor);
-
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('delete-btn');
                 deleteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>';
                 deleteBtn.onclick = () => deleteMessage(id);
                 messageCard.appendChild(deleteBtn);
-
                 messagesContainer.appendChild(messageCard);
             }
-
             function deleteMessage(id) {
                 if (!isAdmin) return;
-
                 showModal('هل أنت متأكد من حذف هذه الرسالة؟', true);
                 confirmCallback = async () => {
                     try {
@@ -1673,51 +1682,52 @@
                     }
                 };
             }
-
             guestbookForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const nameInput = document.getElementById('guest-name');
                 const messageInput = document.getElementById('guest-message');
                 const submitButton = guestbookForm.querySelector('button');
-
                 const name = nameInput.value.trim();
                 const message = messageInput.value.trim();
-
                 if (name === '' || message === '') {
                     showModal('الرجاء إدخال الاسم والرسالة.');
                     return;
                 }
-
                 submitButton.disabled = true;
                 submitButton.textContent = 'جار الإرسال...';
-
                 try {
+                    // ========================= START: التعديل الثاني =========================
                     await messagesCollection.add({
+                        invitationId: invitationId, // حفظ المعرّف مع كل رسالة
                         name: name,
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-
+                    // ========================== END: التعديل الثاني ==========================
                     nameInput.value = '';
                     messageInput.value = '';
-                    showModal('شكراً على أمنيتك الجميلة!');
-
+                    showModal('شكراً على تهنئتك الجميلة!');
                 } catch (error) {
                     console.error("Firestore Write Error: ", error);
                     showModal('عذراً، حدث خطأ أثناء إرسال الرسالة.');
                 } finally {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'إرسال الأمنية';
+                    submitButton.textContent = 'إرسال التهنئة';
                 }
             });
 
-            messagesCollection.orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-                allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                renderPage();
-            }, error => {
-                console.error("Firestore Read Error: ", error);
-                messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل. يرجى التأكد من قواعد الأمان في Firebase.</p>';
-            });
+            // ========================= START: التعديل الثالث =========================
+            // جلب الرسائل التي تطابق المعرّف الفريد للصفحة فقط
+            messagesCollection.where('invitationId', '==', invitationId)
+                .orderBy('timestamp', 'desc')
+                .onSnapshot(snapshot => {
+                    allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    renderPage();
+                }, error => {
+                    console.error("Firestore Read Error: ", error);
+                    messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل. قد تحتاج لإنشاء فهرس في Firebase، يرجى مراجعة الـ Console.</p>';
+                });
+            // ========================== END: التعديل الثالث ==========================
 
             prevPageBtn.addEventListener('click', () => {
                 if (currentPage > 1) {
@@ -1725,7 +1735,6 @@
                     renderPage();
                 }
             });
-
             nextPageBtn.addEventListener('click', () => {
                 const totalPages = Math.ceil(allMessages.length / messagesPerPage);
                 if (currentPage < totalPages) {
@@ -1733,9 +1742,7 @@
                     renderPage();
                 }
             });
-
         });
     </script>
-
 </body>
 </html>
