@@ -44,6 +44,7 @@
             font-family: 'Amiri', serif;
             background-color: var(--background-color);
             transition: background-color 0.4s ease;
+            position: relative;
         }
 
         /* ======== START: Golden Lines Overlay ======== */
@@ -56,21 +57,25 @@
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
-            transition: opacity 0.4s ease;
+        }
+
+        .line-wrapper {
+            position: absolute;
+            transform-origin: center;
         }
 
         .golden-line {
-            position: absolute;
             background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
             animation: move-line 25s linear infinite;
+            transform-origin: left center;
         }
-
+        
         @keyframes move-line {
             from {
-                transform: translateX(-150%);
+                transform: translateX(-100%);
             }
             to {
-                transform: translateX(150%);
+                transform: translateX(100vw);
             }
         }
         /* ======== END: Golden Lines Overlay ======== */
@@ -1357,8 +1362,6 @@
 </head>
 <body>
 
-    <div class="golden-lines-overlay"></div>
-
     <div class="status-bar">
         <button class="hamburger-btn">
             <span class="bar"></span>
@@ -1559,41 +1562,54 @@
         document.addEventListener('DOMContentLoaded', function () {
 
             // ========================= START: Golden Lines Overlay =========================
-            const goldenLinesContainer = document.querySelector('.golden-lines-overlay');
-            const numberOfLines = 20; // يمكنك تغيير عدد الخطوط هنا
-            const fragment = document.createDocumentFragment();
-
-            for (let i = 0; i < numberOfLines; i++) {
-                const line = document.createElement('div');
-                line.classList.add('golden-line');
-
-                const length = Math.random() * 200 + 100; // طول عشوائي
-                const thickness = Math.random() * 2 + 1; // سمك عشوائي
-                const yPos = Math.random() * 100; // موقع عمودي عشوائي (%)
-                const rotation = (Math.random() - 0.5) * 10; // زاوية دوران طفيفة
-                const opacity = Math.random() * 0.2 + 0.05; // شفافية خفيفة جداً
-                const animationDuration = Math.random() * 20 + 15; // مدة حركة عشوائية
-                const animationDelay = Math.random() * -25; // تأخير عشوائي للأنيميشن
-
-                line.style.width = `${length}%`;
-                line.style.height = `${thickness}px`;
-                line.style.top = `${yPos}%`;
-                line.style.opacity = opacity;
-                line.style.transform = `rotate(${rotation}deg)`;
-                line.style.animationDuration = `${animationDuration}s`;
-                line.style.animationDelay = `${animationDelay}s`;
+            function createGoldenLines() {
+                const overlay = document.createElement('div');
+                overlay.className = 'golden-lines-overlay';
                 
-                // إضافة تعرج باستخدام mask-image
-                const waveStrength = Math.random() * 20 + 5;
-                const waveFrequency = Math.floor(Math.random() * 4 + 2);
-                line.style.webkitMaskImage = `repeating-linear-gradient(135deg, transparent 0, transparent ${waveStrength}px, black ${waveStrength}px, black ${waveStrength * 2}px)`;
-                line.style.maskImage = `repeating-linear-gradient(135deg, transparent 0, transparent ${waveStrength}px, black ${waveStrength}px, black ${waveStrength * 2}px)`;
-                line.style.webkitMaskSize = `100% ${waveFrequency}%`;
-                line.style.maskSize = `100% ${waveFrequency}%`;
+                const fragment = document.createDocumentFragment();
+                const numberOfLines = 15; // يمكنك تعديل عدد الخطوط
+
+                for (let i = 0; i < numberOfLines; i++) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'line-wrapper';
+
+                    const line = document.createElement('div');
+                    line.className = 'golden-line';
+                    
+                    const length = Math.random() * 300 + 200; // طول الخط بالبيكسل
+                    const thickness = Math.random() * 2 + 1; // سمك الخط
+                    const yPos = Math.random() * 100; // الموقع العمودي
+                    const rotation = (Math.random() - 0.5) * 15; // زاوية الدوران
+                    const opacity = Math.random() * 0.3 + 0.1; // شفافية
+                    const animationDuration = Math.random() * 30 + 20; // مدة الحركة
+                    const animationDelay = Math.random() * -30; // تأخير الحركة
+
+                    // تطبيق الأنماط على الحاوية (للموقع والدوران)
+                    wrapper.style.top = `${yPos}%`;
+                    wrapper.style.left = '0%';
+                    wrapper.style.width = '100%';
+                    wrapper.style.transform = `rotate(${rotation}deg)`;
+                    
+                    // تطبيق الأنماط على الخط (للشكل والحركة)
+                    line.style.width = `${length}px`;
+                    line.style.height = `${thickness}px`;
+                    line.style.opacity = opacity;
+                    line.style.animationDuration = `${animationDuration}s`;
+                    line.style.animationDelay = `${animationDelay}s`;
+                    
+                    // إضافة التعرج
+                    const waveStrength = Math.random() * 15 + 5;
+                    line.style.maskImage = `repeating-linear-gradient(45deg, transparent 0, transparent ${waveStrength}px, black ${waveStrength}px, black ${waveStrength * 2}px)`;
+                    line.style.webkitMaskImage = line.style.maskImage;
+
+                    wrapper.appendChild(line);
+                    fragment.appendChild(wrapper);
+                }
                 
-                fragment.appendChild(line);
+                overlay.appendChild(fragment);
+                document.body.insertBefore(overlay, document.body.firstChild);
             }
-            goldenLinesContainer.appendChild(fragment);
+            createGoldenLines();
             // ========================== END: Golden Lines Overlay ==========================
 
 
