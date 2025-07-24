@@ -21,6 +21,19 @@
             --danger-red: #d9534f;
         }
 
+        /* ======== START: Background Themes Addition ======== */
+        body.theme-navy {
+            --background-color: #0a192f; /* خلفية كحلية غامقة */
+            --warm-gray: #a8b2d1; /* لون نص فاتح للتباين */
+        }
+
+        body.theme-green {
+            --background-color: #064132; /* خلفية خضراء داكنة حسب الطلب */
+            --warm-gray: #d1d8d0; /* لون نص فاتح للتباين */
+        }
+        /* ======== END: Background Themes Addition ======== */
+
+
         * {
             margin: 0;
             padding: 0;
@@ -30,6 +43,7 @@
         body {
             font-family: 'Amiri', serif;
             background-color: var(--background-color);
+            transition: background-color 0.4s ease;
         }
 
         /* ======== شريط الحالة العلوي ======== */
@@ -49,12 +63,43 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             background: var(--background-color);
             border-bottom: 1px solid rgba(179, 135, 40, 0.2);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        body.theme-navy .status-bar,
+        body.theme-green .status-bar {
+            border-bottom: 1px solid rgba(179, 135, 40, 0.4);
         }
 
         .status-bar-title {
             flex-grow: 1;
             text-align: center;
         }
+
+        /* ======== Theme Switcher Button Style ======== */
+        .theme-switcher-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            z-index: 101;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .theme-switcher-btn svg {
+                width: 28px;
+                height: 28px;
+                fill: var(--gold-main);
+                transition: fill 0.3s ease, transform 0.3s ease;
+            }
+
+            .theme-switcher-btn:hover svg {
+                transform: scale(1.1) rotate(15deg);
+            }
 
         /* ======== قائمة التنقل (الهامبرغر) ======== */
         .hamburger-btn {
@@ -273,6 +318,7 @@
             position: relative;
             height: 70px;
             overflow: visible;
+            transition: background-color 0.4s ease;
         }
 
         .countdown-title {
@@ -303,26 +349,33 @@
             height: 85px;
             border-radius: 50%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05), inset 0 0 8px rgba(212, 175, 55, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.4s ease;
         }
 
-            .time-unit:hover {
-                transform: scale(1.05);
-            }
+        body.theme-navy .time-unit,
+        body.theme-green .time-unit {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
+        }
 
-            .time-unit .number {
-                font-family: 'Amiri', serif;
-                font-size: 2rem;
-                font-weight: 700;
-                color: var(--gold-main);
-                line-height: 1;
-            }
+        .time-unit:hover {
+            transform: scale(1.05);
+        }
 
-            .time-unit .label {
-                font-size: 0.8rem;
-                color: var(--warm-gray);
-                margin-top: 5px;
-            }
+        .time-unit .number {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-main);
+            line-height: 1;
+            transition: color 0.4s ease;
+        }
+
+        .time-unit .label {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            margin-top: 5px;
+            transition: color 0.4s ease;
+        }
 
         .hero-countdown {
             position: absolute;
@@ -426,6 +479,7 @@
             padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
+            transition: background-color 0.4s ease;
         }
 
         .section-title {
@@ -435,6 +489,7 @@
             font-weight: 700;
             color: var(--gold-main);
             margin-bottom: 50px;
+            transition: color 0.4s ease;
         }
 
         .album-carousel-container {
@@ -518,6 +573,7 @@
             height: auto;
             stroke: var(--gold-main);
             stroke-width: 3;
+            transition: stroke 0.4s ease;
         }
 
         /* ======== قسم الصورة الختامية ======== */
@@ -531,6 +587,7 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
+            transition: background-color 0.4s ease;
         }
 
             .final-image-section .bg-image {
@@ -551,15 +608,32 @@
                 font-size: 2.8rem;
                 font-weight: 700;
                 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-                background: rgba(253, 250, 242, 0.7);
+                background: rgba(255, 255, 255, 0.7);
                 padding: 20px 40px;
                 border-radius: 15px;
+                transition: color 0.4s ease, background-color 0.4s ease;
             }
+
+        body.theme-navy .final-image-section .content {
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid var(--gold-main);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        body.theme-green .final-image-section .content {
+            background: rgba(6, 65, 50, 0.7);
+            border: 1px solid var(--gold-main);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
 
         /* ======== قسم تفاصيل الحفل ======== */
         .event-details-section {
             background-color: var(--background-color);
             text-align: center;
+            transition: background-color 0.4s ease;
         }
 
         .details-container {
@@ -580,12 +654,24 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out; /* --- تعديل الأنيميشن --- */
-            opacity: 0; /* --- تعديل الأنيميشن: إخفاء الصناديق في البداية --- */
-            transform: translateY(40px); /* --- تعديل الأنيميشن: تحريكها للأسفل --- */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.4s ease;
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        /* --- START: تعديل الأنيميشن --- */
+        body.theme-navy .detail-item {
+            background: rgba(42, 67, 101, 0.3);
+            border: 1px solid rgba(179, 135, 40, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        body.theme-green .detail-item {
+            background: rgba(6, 65, 50, 0.3);
+            border: 1px solid rgba(179, 135, 40, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+
         .details-container.is-visible .detail-item {
             opacity: 1;
             transform: translateY(0);
@@ -602,8 +688,6 @@
             .details-container.is-visible .detail-item:nth-child(3) {
                 transition-delay: 0.5s;
             }
-        /* --- END: تعديل الأنيميشن --- */
-
 
         .detail-item:hover {
             transform: translateY(-5px);
@@ -615,6 +699,7 @@
             height: 50px;
             margin-bottom: 5px;
             fill: var(--gold-main);
+            transition: fill 0.4s ease;
         }
 
         .detail-item h3 {
@@ -623,12 +708,14 @@
             font-weight: 700;
             color: var(--gold-main);
             margin-bottom: 10px;
+            transition: color 0.4s ease;
         }
 
         .detail-item p {
             font-size: 1.3rem;
             color: var(--warm-gray);
             line-height: 1.8;
+            transition: color 0.4s ease;
         }
 
         .location-btn {
@@ -653,6 +740,7 @@
         /* ======== قسم سجل الزوار ======== */
         .guestbook-section {
             background-color: var(--background-color);
+            transition: background-color 0.4s ease;
         }
 
         .guestbook-form {
@@ -672,42 +760,64 @@
                 font-family: 'Amiri', serif;
                 font-size: 1.1rem;
                 color: var(--warm-gray);
-                transition: border-color 0.3s ease;
+                transition: border-color 0.3s ease, background-color 0.4s ease, color 0.4s ease;
             }
 
-                .guestbook-form input:focus,
-                .guestbook-form textarea:focus {
-                    outline: none;
-                    border-color: var(--gold-main);
-                }
+        body.theme-navy .guestbook-form input,
+        body.theme-navy .guestbook-form textarea {
+            background-color: rgba(42, 67, 101, 0.3);
+            border-color: rgba(179, 135, 40, 0.5);
+            color: #fff;
+        }
 
-            .guestbook-form textarea {
-                resize: vertical;
-                min-height: 120px;
+        body.theme-green .guestbook-form input,
+        body.theme-green .guestbook-form textarea {
+            background-color: rgba(6, 65, 50, 0.3);
+            border-color: rgba(179, 135, 40, 0.5);
+            color: #fff;
+        }
+
+            body.theme-navy .guestbook-form input::placeholder,
+            body.theme-navy .guestbook-form textarea::placeholder,
+            body.theme-green .guestbook-form input::placeholder,
+            body.theme-green .guestbook-form textarea::placeholder {
+                color: rgba(255,255,255,0.7);
             }
 
-            .guestbook-form button {
-                padding: 15px 40px;
-                background-color: var(--gold-main);
-                color: #fff;
-                border: none;
-                border-radius: 10px;
-                font-family: 'Amiri', serif;
-                font-size: 1.2rem;
-                font-weight: 700;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.3s ease;
+
+        .guestbook-form input:focus,
+        .guestbook-form textarea:focus {
+            outline: none;
+            border-color: var(--gold-main);
+        }
+
+        .guestbook-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .guestbook-form button {
+            padding: 15px 40px;
+            background-color: var(--gold-main);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+            .guestbook-form button:hover {
+                background-color: var(--gold-dark);
+                transform: scale(1.05);
             }
 
-                .guestbook-form button:hover {
-                    background-color: var(--gold-dark);
-                    transform: scale(1.05);
-                }
-
-                .guestbook-form button:disabled {
-                    background-color: var(--warm-gray);
-                    cursor: not-allowed;
-                }
+            .guestbook-form button:disabled {
+                background-color: var(--warm-gray);
+                cursor: not-allowed;
+            }
 
         .messages-container {
             max-width: 800px;
@@ -726,26 +836,40 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.07);
             animation: fade-in-card 0.5s ease;
             position: relative;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
         }
 
-            .message-card .message-text {
-                font-size: 1.1rem;
-                color: var(--warm-gray);
-                line-height: 1.8;
-                margin-bottom: 15px;
-                font-style: italic;
-                max-height: 150px;
-                overflow-y: auto;
-                word-wrap: break-word;
-                padding-left: 10px;
-            }
+        body.theme-navy .message-card {
+            background-color: rgba(42, 67, 101, 0.3);
+            box-shadow: none;
+        }
 
-            .message-card .message-author {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: var(--gold-main);
-                text-align: left;
-            }
+        body.theme-green .message-card {
+            background-color: rgba(6, 65, 50, 0.3);
+            box-shadow: none;
+        }
+
+
+        .message-card .message-text {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-style: italic;
+            max-height: 150px;
+            overflow-y: auto;
+            word-wrap: break-word;
+            padding-left: 10px;
+            transition: color 0.4s ease;
+        }
+
+        .message-card .message-author {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold-main);
+            text-align: left;
+            transition: color 0.4s ease;
+        }
 
         .delete-btn {
             position: absolute;
@@ -813,12 +937,23 @@
             font-size: 1.2rem;
             color: var(--gold-main);
             font-weight: 700;
+            transition: color 0.4s ease;
         }
 
         /* ======== الفوتر ======== */
         .site-footer {
             background-color: #f8f4e3;
+            transition: background-color 0.4s ease;
         }
+
+        body.theme-navy .site-footer {
+            background-color: #020c1b;
+        }
+
+        body.theme-green .site-footer {
+            background-color: #043026;
+        }
+
 
         .footer-container {
             max-width: 1000px;
@@ -851,6 +986,7 @@
                 width: 24px;
                 height: 24px;
                 fill: var(--gold-main);
+                transition: fill 0.4s ease;
             }
 
         .social-links {
@@ -905,7 +1041,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border-top: 5px solid var(--gold-main);
             transform: scale(0.9);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
         }
 
         .modal-overlay.is-visible .modal-content {
@@ -917,6 +1053,7 @@
             color: var(--warm-gray);
             margin-bottom: 25px;
             line-height: 1.7;
+            transition: color 0.4s ease;
         }
 
         .modal-content input[type="password"] {
@@ -928,6 +1065,7 @@
             font-family: 'Amiri', serif;
             font-size: 1.1rem;
             text-align: center;
+            transition: border-color 0.4s ease;
         }
 
             .modal-content input[type="password"]:focus {
@@ -964,11 +1102,20 @@
 
             .confirmation-buttons #cancel-btn {
                 background-color: var(--warm-gray);
+                transition: background-color 0.4s ease;
             }
 
                 .confirmation-buttons #cancel-btn:hover {
                     background-color: #8a867c;
                 }
+
+        body.theme-navy .confirmation-buttons #cancel-btn:hover {
+            background-color: #525e71;
+        }
+
+        body.theme-green .confirmation-buttons #cancel-btn:hover {
+            background-color: #505d42;
+        }
 
 
         /* ======== تعريف الأنيميشن ======== */
@@ -1163,6 +1310,11 @@
             <span class="bar"></span>
         </button>
         <span class="status-bar-title">Creative Design</span>
+        <button class="theme-switcher-btn" id="theme-switcher" aria-label="تبديل الثيم">
+            <svg viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,7.3A4.7,4.7 0 0,1 16.7,12A4.7,4.7 0 0,1 12,16.7A4.7,4.7 0 0,1 7.3,12A4.7,4.7 0 0,1 12,7.3Z" />
+            </svg>
+        </button>
     </div>
 
     <nav class="main-nav">
@@ -1349,12 +1501,33 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // ========================= START: التعديل الأول =========================
-            // تحديد معرّف فريد لهذه الدعوة.
-            // !! يجب تغيير هذا المعرّف لكل دعوة جديدة !!
-            const invitationId = "ahmad-and-serine-2025";
-            // ========================== END: التعديل الأول ==========================
+            // ========================= START: Theme Switcher Logic =========================
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const body = document.body;
+            const themes = ['default', 'theme-navy', 'theme-green']; // Updated themes list
+            let currentThemeIndex = 0;
 
+            const savedTheme = localStorage.getItem('weddingTheme');
+            if (savedTheme && themes.includes(savedTheme)) {
+                currentThemeIndex = themes.indexOf(savedTheme);
+                if (savedTheme !== 'default') {
+                    body.classList.add(savedTheme);
+                }
+            }
+
+            themeSwitcher.addEventListener('click', () => {
+                body.classList.remove(themes[currentThemeIndex]);
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                if (newTheme !== 'default') {
+                    body.classList.add(newTheme);
+                }
+                localStorage.setItem('weddingTheme', newTheme);
+            });
+            // ========================== END: Theme Switcher Logic ==========================
+
+
+            const invitationId = "ahmad-and-serine";
 
             const firebaseConfig = {
                 apiKey: "AIzaSyB1pMv9fIJU6UlEik_wIvEWhmoq6Y8o0es",
@@ -1366,7 +1539,6 @@
             };
             try {
                 firebase.initializeApp(firebaseConfig);
-                console.log("Firebase Initialized Successfully");
             } catch (e) {
                 console.error("Error initializing Firebase", e);
             }
@@ -1469,7 +1641,7 @@
             };
             const countdownInterval = setInterval(countdown, 1000);
             countdown();
-            /* ======== w,v صور العريس ======== */
+
             const albumCarousel = document.getElementById('album-carousel');
             const prevBtn = document.getElementById('album-prev-btn');
             const nextBtn = document.getElementById('album-next-btn');
@@ -1696,14 +1868,12 @@
                 submitButton.disabled = true;
                 submitButton.textContent = 'جار الإرسال...';
                 try {
-                    // ========================= START: التعديل الثاني =========================
                     await messagesCollection.add({
-                        invitationId: invitationId, // حفظ المعرّف مع كل رسالة
+                        invitationId: invitationId,
                         name: name,
                         message: message,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     });
-                    // ========================== END: التعديل الثاني ==========================
                     nameInput.value = '';
                     messageInput.value = '';
                     showModal('شكراً على تهنئتك الجميلة!');
@@ -1716,8 +1886,6 @@
                 }
             });
 
-            // ========================= START: التعديل الثالث =========================
-            // جلب الرسائل التي تطابق المعرّف الفريد للصفحة فقط
             messagesCollection.where('invitationId', '==', invitationId)
                 .orderBy('timestamp', 'desc')
                 .onSnapshot(snapshot => {
@@ -1727,7 +1895,6 @@
                     console.error("Firestore Read Error: ", error);
                     messagesContainer.innerHTML = '<p style="color: var(--warm-gray); text-align: center;">حدث خطأ في تحميل الرسائل. قد تحتاج لإنشاء فهرس في Firebase، يرجى مراجعة الـ Console.</p>';
                 });
-            // ========================== END: التعديل الثالث ==========================
 
             prevPageBtn.addEventListener('click', () => {
                 if (currentPage > 1) {
