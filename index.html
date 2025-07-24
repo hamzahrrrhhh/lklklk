@@ -21,13 +21,18 @@
             --danger-red: #d9534f;
         }
 
+        html {
+            background-color: var(--background-color);
+            transition: background-color 0.4s ease;
+        }
+
         /* ======== START: Background Themes Addition ======== */
-        body.theme-navy {
+        html.theme-navy {
             --background-color: #0a192f; /* خلفية كحلية غامقة */
             --warm-gray: #a8b2d1; /* لون نص فاتح للتباين */
         }
 
-        body.theme-green {
+        html.theme-green {
             --background-color: #064132; /* خلفية خضراء داكنة حسب الطلب */
             --warm-gray: #d1d8d0; /* لون نص فاتح للتباين */
         }
@@ -42,8 +47,7 @@
 
         body {
             font-family: 'Amiri', serif;
-            background-color: var(--background-color);
-            transition: background-color 0.4s ease;
+            background-color: transparent; /* جعل خلفية البودي شفافة */
             position: relative;
         }
 
@@ -54,7 +58,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: -1; /* وضعها خلف محتوى البودي */
             pointer-events: none;
             overflow: hidden;
         }
@@ -65,9 +69,8 @@
         }
 
         .golden-line {
-            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0), rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0));
             animation: move-line 25s linear infinite;
-            transform-origin: left center;
         }
         
         @keyframes move-line {
@@ -101,8 +104,8 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        body.theme-navy .status-bar,
-        body.theme-green .status-bar {
+        html.theme-navy .status-bar,
+        html.theme-green .status-bar {
             border-bottom: 1px solid rgba(179, 135, 40, 0.4);
         }
 
@@ -226,6 +229,7 @@
             text-align: center;
             overflow: hidden;
             color: #fff;
+            background-color: transparent;
         }
 
             /* START: Fading Fog Effect */
@@ -364,11 +368,10 @@
 
         /* ======== قسم التفاصيل والعداد الزمني ======== */
         .details-section {
-            background-color: var(--background-color);
+            background-color: transparent;
             position: relative;
             height: 70px;
             overflow: visible;
-            transition: background-color 0.4s ease;
         }
 
         .countdown-title {
@@ -402,8 +405,8 @@
             transition: transform 0.3s ease, border-color 0.4s ease;
         }
 
-        body.theme-navy .time-unit,
-        body.theme-green .time-unit {
+        html.theme-navy .time-unit,
+        html.theme-green .time-unit {
             box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
         }
 
@@ -453,8 +456,8 @@
             transition: background 0.4s ease, border-color 0.4s ease;
         }
 
-        body.theme-navy .hero-section .time-unit,
-        body.theme-green .hero-section .time-unit {
+        html.theme-navy .hero-section .time-unit,
+        html.theme-green .hero-section .time-unit {
             background: rgba(255, 255, 255, 0.15); /* Light glass for dark themes */
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -489,6 +492,7 @@
         .site-footer {
             position: relative;
             border-top: none;
+            background-color: transparent;
         }
 
         .album-section {
@@ -535,11 +539,7 @@
 
         /* ======== قسم الألبوم المعدل ======== */
         .album-section {
-            background-color: var(--background-color);
-            padding: 120px 0 80px;
-            position: relative;
             overflow: hidden;
-            transition: background-color 0.4s ease;
         }
 
         .section-title {
@@ -640,14 +640,12 @@
         .final-image-section {
             height: 100vh;
             width: 100%;
-            background-color: var(--background-color);
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
-            transition: background-color 0.4s ease;
         }
 
             .final-image-section .bg-image {
@@ -681,17 +679,15 @@
             mask-composite: intersect;
         }
 
-        body.theme-navy .glass-backdrop,
-        body.theme-green .glass-backdrop {
+        html.theme-navy .glass-backdrop,
+        html.theme-green .glass-backdrop {
             opacity: 1;
         }
         /* END: Fading Glass Box Solution */
 
         /* ======== قسم تفاصيل الحفل ======== */
         .event-details-section {
-            background-color: var(--background-color);
             text-align: center;
-            transition: background-color 0.4s ease;
         }
 
         .details-container {
@@ -717,13 +713,13 @@
             transform: translateY(40px);
         }
 
-        body.theme-navy .detail-item {
+        html.theme-navy .detail-item {
             background: rgba(42, 67, 101, 0.3);
             border: 1px solid rgba(179, 135, 40, 0.5);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        body.theme-green .detail-item {
+        html.theme-green .detail-item {
             background: rgba(6, 65, 50, 0.3);
             border: 1px solid rgba(179, 135, 40, 0.5);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
@@ -796,11 +792,6 @@
             }
 
         /* ======== قسم سجل الزوار ======== */
-        .guestbook-section {
-            background-color: var(--background-color);
-            transition: background-color 0.4s ease;
-        }
-
         .guestbook-form {
             max-width: 600px;
             margin: 0 auto 50px auto;
@@ -821,24 +812,24 @@
                 transition: border-color 0.3s ease, background-color 0.4s ease, color 0.4s ease;
             }
 
-        body.theme-navy .guestbook-form input,
-        body.theme-navy .guestbook-form textarea {
+        html.theme-navy .guestbook-form input,
+        html.theme-navy .guestbook-form textarea {
             background-color: rgba(42, 67, 101, 0.3);
             border-color: rgba(179, 135, 40, 0.5);
             color: #fff;
         }
 
-        body.theme-green .guestbook-form input,
-        body.theme-green .guestbook-form textarea {
+        html.theme-green .guestbook-form input,
+        html.theme-green .guestbook-form textarea {
             background-color: rgba(6, 65, 50, 0.3);
             border-color: rgba(179, 135, 40, 0.5);
             color: #fff;
         }
 
-            body.theme-navy .guestbook-form input::placeholder,
-            body.theme-navy .guestbook-form textarea::placeholder,
-            body.theme-green .guestbook-form input::placeholder,
-            body.theme-green .guestbook-form textarea::placeholder {
+            html.theme-navy .guestbook-form input::placeholder,
+            html.theme-navy .guestbook-form textarea::placeholder,
+            html.theme-green .guestbook-form input::placeholder,
+            html.theme-green .guestbook-form textarea::placeholder {
                 color: rgba(255,255,255,0.7);
             }
 
@@ -897,12 +888,12 @@
             transition: border-color 0.4s ease, background-color 0.4s ease;
         }
 
-        body.theme-navy .message-card {
+        html.theme-navy .message-card {
             background-color: rgba(42, 67, 101, 0.3);
             box-shadow: none;
         }
 
-        body.theme-green .message-card {
+        html.theme-green .message-card {
             background-color: rgba(6, 65, 50, 0.3);
             box-shadow: none;
         }
@@ -1001,14 +992,13 @@
         /* ======== الفوتر ======== */
         .site-footer {
             background-color: #f8f4e3;
-            transition: background-color 0.4s ease;
         }
 
-        body.theme-navy .site-footer {
+        html.theme-navy .site-footer {
             background-color: #020c1b;
         }
 
-        body.theme-green .site-footer {
+        html.theme-green .site-footer {
             background-color: #043026;
         }
 
@@ -1167,11 +1157,11 @@
                     background-color: #8a867c;
                 }
 
-        body.theme-navy .confirmation-buttons #cancel-btn:hover {
+        html.theme-navy .confirmation-buttons #cancel-btn:hover {
             background-color: #525e71;
         }
 
-        body.theme-green .confirmation-buttons #cancel-btn:hover {
+        html.theme-green .confirmation-buttons #cancel-btn:hover {
             background-color: #505d42;
         }
 
@@ -1567,7 +1557,7 @@
                 overlay.className = 'golden-lines-overlay';
                 
                 const fragment = document.createDocumentFragment();
-                const numberOfLines = 15; // يمكنك تعديل عدد الخطوط
+                const numberOfLines = 20; // يمكنك تعديل عدد الخطوط
 
                 for (let i = 0; i < numberOfLines; i++) {
                     const wrapper = document.createElement('div');
@@ -1576,17 +1566,17 @@
                     const line = document.createElement('div');
                     line.className = 'golden-line';
                     
-                    const length = Math.random() * 300 + 200; // طول الخط بالبيكسل
-                    const thickness = Math.random() * 2 + 1; // سمك الخط
+                    const length = Math.random() * 400 + 300; // طول الخط بالبيكسل
+                    const thickness = Math.random() * 3 + 1; // سمك الخط
                     const yPos = Math.random() * 100; // الموقع العمودي
-                    const rotation = (Math.random() - 0.5) * 15; // زاوية الدوران
-                    const opacity = Math.random() * 0.3 + 0.1; // شفافية
-                    const animationDuration = Math.random() * 30 + 20; // مدة الحركة
-                    const animationDelay = Math.random() * -30; // تأخير الحركة
+                    const rotation = (Math.random() - 0.5) * 20; // زاوية الدوران
+                    const opacity = Math.random() * 0.25 + 0.1; // شفافية
+                    const animationDuration = Math.random() * 20 + 15; // مدة الحركة
+                    const animationDelay = Math.random() * -25; // تأخير الحركة
 
                     // تطبيق الأنماط على الحاوية (للموقع والدوران)
                     wrapper.style.top = `${yPos}%`;
-                    wrapper.style.left = '0%';
+                    wrapper.style.left = '0px';
                     wrapper.style.width = '100%';
                     wrapper.style.transform = `rotate(${rotation}deg)`;
                     
@@ -1597,9 +1587,8 @@
                     line.style.animationDuration = `${animationDuration}s`;
                     line.style.animationDelay = `${animationDelay}s`;
                     
-                    // إضافة التعرج
-                    const waveStrength = Math.random() * 15 + 5;
-                    line.style.maskImage = `repeating-linear-gradient(45deg, transparent 0, transparent ${waveStrength}px, black ${waveStrength}px, black ${waveStrength * 2}px)`;
+                    const waveStrength = Math.random() * 10 + 5;
+                    line.style.maskImage = `repeating-linear-gradient(60deg, transparent 0, transparent ${waveStrength}px, black ${waveStrength}px, black ${waveStrength * 2}px)`;
                     line.style.webkitMaskImage = line.style.maskImage;
 
                     wrapper.appendChild(line);
@@ -1615,7 +1604,7 @@
 
             // ========================= START: Theme Switcher Logic =========================
             const themeSwitcher = document.getElementById('theme-switcher');
-            const body = document.body;
+            const rootEl = document.documentElement; // استهداف <html> بدلاً من <body>
             const themes = ['default', 'theme-navy', 'theme-green'];
             let currentThemeIndex = 0;
 
@@ -1623,16 +1612,16 @@
             if (savedTheme && themes.includes(savedTheme)) {
                 currentThemeIndex = themes.indexOf(savedTheme);
                 if (savedTheme !== 'default') {
-                    body.classList.add(savedTheme);
+                    rootEl.classList.add(savedTheme);
                 }
             }
 
             themeSwitcher.addEventListener('click', () => {
-                body.classList.remove(themes[currentThemeIndex]);
+                rootEl.classList.remove(themes[currentThemeIndex]);
                 currentThemeIndex = (currentThemeIndex + 1) % themes.length;
                 const newTheme = themes[currentThemeIndex];
                 if (newTheme !== 'default') {
-                    body.classList.add(newTheme);
+                    rootEl.classList.add(newTheme);
                 }
                 localStorage.setItem('weddingTheme', newTheme);
             });
