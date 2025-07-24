@@ -24,12 +24,17 @@
         /* ======== START: Background Themes Addition ======== */
         body.theme-navy {
             --background-color: #0a192f; /* خلفية كحلية غامقة */
-            --warm-gray: #a8b2d1; /* لون نص فاتح للتباين */
+            --warm-gray: #a8b2d1;      /* لون نص فاتح للتباين */
         }
-
+        
         body.theme-green {
             --background-color: #064132; /* خلفية خضراء داكنة حسب الطلب */
-            --warm-gray: #d1d8d0; /* لون نص فاتح للتباين */
+            --warm-gray: #d1d8d0;      /* لون نص فاتح للتباين */
+        }
+
+        body.theme-burgundy {
+            --background-color: #380F21; /* خلفية عنابي داكن حسب الطلب */
+            --warm-gray: #d8d0d3;      /* لون نص فاتح للتباين */
         }
         /* ======== END: Background Themes Addition ======== */
 
@@ -65,9 +70,10 @@
             border-bottom: 1px solid rgba(179, 135, 40, 0.2);
             transition: background-color 0.4s ease, color 0.4s ease;
         }
-
+        
         body.theme-navy .status-bar,
-        body.theme-green .status-bar {
+        body.theme-green .status-bar,
+        body.theme-burgundy .status-bar {
             border-bottom: 1px solid rgba(179, 135, 40, 0.4);
         }
 
@@ -90,17 +96,17 @@
             justify-content: center;
         }
 
-            .theme-switcher-btn svg {
-                width: 28px;
-                height: 28px;
-                fill: var(--gold-main);
-                transition: fill 0.3s ease, transform 0.3s ease;
-            }
+        .theme-switcher-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--gold-main);
+            transition: fill 0.3s ease, transform 0.3s ease;
+        }
 
-            .theme-switcher-btn:hover svg {
-                transform: scale(1.1) rotate(15deg);
-            }
-
+        .theme-switcher-btn:hover svg {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
         /* ======== قائمة التنقل (الهامبرغر) ======== */
         .hamburger-btn {
             background: none;
@@ -193,19 +199,19 @@
             color: #fff;
         }
 
-            /* START: Fading Fog Effect */
-            .hero-section::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 40vh; /* Control fade height */
-                z-index: 1;
-                pointer-events: none;
-                background: linear-gradient(to top, var(--background-color) 0%, transparent 100%);
-                transition: background 0.4s ease; /* Smooth transition for theme change */
-            }
+        /* START: Fading Fog Effect */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40vh; /* Control fade height */
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(to top, var(--background-color) 0%, transparent 100%);
+            transition: background 0.4s ease; /* Smooth transition for theme change */
+        }
         /* END: Fading Fog Effect */
 
         .slideshow-container {
@@ -248,7 +254,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 60%); /* Fading dark overlay from top */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 60%);
             z-index: 1;
         }
 
@@ -333,7 +339,7 @@
             position: relative;
             height: 70px;
             overflow: visible;
-            transition: background-color 0.4s ease;
+             transition: background-color 0.4s ease;
         }
 
         .countdown-title {
@@ -366,31 +372,32 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05), inset 0 0 8px rgba(212, 175, 55, 0.1);
             transition: transform 0.3s ease, border-color 0.4s ease;
         }
-
+        
         body.theme-navy .time-unit,
-        body.theme-green .time-unit {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
+        body.theme-green .time-unit,
+        body.theme-burgundy .time-unit {
+             box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
         }
 
-        .time-unit:hover {
-            transform: scale(1.05);
-        }
+            .time-unit:hover {
+                transform: scale(1.05);
+            }
 
-        .time-unit .number {
-            font-family: 'Amiri', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold-main);
-            line-height: 1;
-            transition: color 0.4s ease;
-        }
+            .time-unit .number {
+                font-family: 'Amiri', serif;
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--gold-main);
+                line-height: 1;
+                 transition: color 0.4s ease;
+            }
 
-        .time-unit .label {
-            font-size: 0.8rem;
-            color: var(--warm-gray);
-            margin-top: 5px;
-            transition: color 0.4s ease;
-        }
+            .time-unit .label {
+                font-size: 0.8rem;
+                color: var(--warm-gray);
+                margin-top: 5px;
+                 transition: color 0.4s ease;
+            }
 
         .hero-countdown {
             position: absolute;
@@ -410,30 +417,42 @@
 
         /* START: Countdown Timer Styling */
         .hero-section .time-unit {
-            background: rgba(0, 0, 0, 0.25); /* Smoky glass for light theme */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            transition: background 0.4s ease, border-color 0.4s ease;
+            background: rgba(255, 255, 255, 0.25); /* iOS Glass for light theme */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
         }
-
+        
         body.theme-navy .hero-section .time-unit,
-        body.theme-green .hero-section .time-unit {
-            background: rgba(255, 255, 255, 0.15); /* Light glass for dark themes */
-            border: 2px solid rgba(255, 255, 255, 0.2);
+        body.theme-green .hero-section .time-unit,
+        body.theme-burgundy .hero-section .time-unit {
+            background: rgba(255, 255, 255, 0.1); /* Consistent glass for dark themes */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
         }
-        /* END: Countdown Timer Styling */
-
-
+        
+        /* Default text color for countdown (for light theme) */
         .hero-section .time-unit .number {
+            color: var(--gold-main);
+        }
+        .hero-section .time-unit .label {
+            color: var(--gold-dark);
+        }
+
+        /* Override text color to white for dark themes */
+        body.theme-navy .hero-section .time-unit .number,
+        body.theme-green .hero-section .time-unit .number,
+        body.theme-burgundy .hero-section .time-unit .number {
             color: #fff;
         }
-
-        .hero-section .time-unit .label {
+        body.theme-navy .hero-section .time-unit .label,
+        body.theme-green .hero-section .time-unit .label,
+        body.theme-burgundy .hero-section .time-unit .label {
             color: rgba(255, 255, 255, 0.85);
         }
-
+        /* END: Countdown Timer Styling */
 
         .floral-decoration-center {
             position: absolute;
@@ -504,7 +523,7 @@
             padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
-            transition: background-color 0.4s ease;
+             transition: background-color 0.4s ease;
         }
 
         .section-title {
@@ -514,7 +533,7 @@
             font-weight: 700;
             color: var(--gold-main);
             margin-bottom: 50px;
-            transition: color 0.4s ease;
+             transition: color 0.4s ease;
         }
 
         .album-carousel-container {
@@ -612,7 +631,7 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
-            transition: background-color 0.4s ease;
+             transition: background-color 0.4s ease;
         }
 
             .final-image-section .bg-image {
@@ -622,41 +641,45 @@
                 object-fit: contain;
                 z-index: 2;
             }
-
+            
             .final-image-section .content {
                 display: none;
             }
 
-        /* START: Fading Glass Box Solution */
-        .glass-backdrop {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.4s, box-shadow 0.4s;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-            -webkit-mask-composite: destination-in;
-            mask-composite: intersect;
-        }
+            /* START: Fading Glass Box Solution */
+            .glass-backdrop {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.4s, box-shadow 0.4s;
+                
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), 
+                                    linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%), 
+                            linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+                -webkit-mask-composite: destination-in;
+                mask-composite: intersect;
+            }
 
-        body.theme-navy .glass-backdrop,
-        body.theme-green .glass-backdrop {
-            opacity: 1;
-        }
-        /* END: Fading Glass Box Solution */
-
+            body.theme-navy .glass-backdrop,
+            body.theme-green .glass-backdrop,
+            body.theme-burgundy .glass-backdrop {
+                opacity: 1;
+            }
+            /* END: Fading Glass Box Solution */
+        
         /* ======== قسم تفاصيل الحفل ======== */
         .event-details-section {
             background-color: var(--background-color);
             text-align: center;
-            transition: background-color 0.4s ease;
+             transition: background-color 0.4s ease;
         }
 
         .details-container {
@@ -681,19 +704,24 @@
             opacity: 0;
             transform: translateY(40px);
         }
-
+        
         body.theme-navy .detail-item {
-            background: rgba(42, 67, 101, 0.3);
-            border: 1px solid rgba(179, 135, 40, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+             background: rgba(42, 67, 101, 0.3);
+             border: 1px solid rgba(179, 135, 40, 0.5);
+             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-
+        
         body.theme-green .detail-item {
-            background: rgba(6, 65, 50, 0.3);
-            border: 1px solid rgba(179, 135, 40, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+             background: rgba(6, 65, 50, 0.3);
+             border: 1px solid rgba(179, 135, 40, 0.5);
+             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
+        body.theme-burgundy .detail-item {
+             background: rgba(87, 43, 62, 0.3);
+             border: 1px solid rgba(179, 135, 40, 0.5);
+             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
 
         .details-container.is-visible .detail-item {
             opacity: 1;
@@ -722,7 +750,7 @@
             height: 50px;
             margin-bottom: 5px;
             fill: var(--gold-main);
-            transition: fill 0.4s ease;
+             transition: fill 0.4s ease;
         }
 
         .detail-item h3 {
@@ -731,14 +759,14 @@
             font-weight: 700;
             color: var(--gold-main);
             margin-bottom: 10px;
-            transition: color 0.4s ease;
+             transition: color 0.4s ease;
         }
 
         .detail-item p {
             font-size: 1.3rem;
             color: var(--warm-gray);
             line-height: 1.8;
-            transition: color 0.4s ease;
+             transition: color 0.4s ease;
         }
 
         .location-btn {
@@ -785,62 +813,71 @@
                 color: var(--warm-gray);
                 transition: border-color 0.3s ease, background-color 0.4s ease, color 0.4s ease;
             }
+            
+            body.theme-navy .guestbook-form input,
+            body.theme-navy .guestbook-form textarea {
+                background-color: rgba(42, 67, 101, 0.3);
+                border-color: rgba(179, 135, 40, 0.5);
+                color: #fff;
+            }
+            
+            body.theme-green .guestbook-form input,
+            body.theme-green .guestbook-form textarea {
+                background-color: rgba(6, 65, 50, 0.3);
+                border-color: rgba(179, 135, 40, 0.5);
+                color: #fff;
+            }
 
-        body.theme-navy .guestbook-form input,
-        body.theme-navy .guestbook-form textarea {
-            background-color: rgba(42, 67, 101, 0.3);
-            border-color: rgba(179, 135, 40, 0.5);
-            color: #fff;
-        }
-
-        body.theme-green .guestbook-form input,
-        body.theme-green .guestbook-form textarea {
-            background-color: rgba(6, 65, 50, 0.3);
-            border-color: rgba(179, 135, 40, 0.5);
-            color: #fff;
-        }
+            body.theme-burgundy .guestbook-form input,
+            body.theme-burgundy .guestbook-form textarea {
+                background-color: rgba(87, 43, 62, 0.3);
+                border-color: rgba(179, 135, 40, 0.5);
+                color: #fff;
+            }
 
             body.theme-navy .guestbook-form input::placeholder,
             body.theme-navy .guestbook-form textarea::placeholder,
             body.theme-green .guestbook-form input::placeholder,
-            body.theme-green .guestbook-form textarea::placeholder {
+            body.theme-green .guestbook-form textarea::placeholder,
+            body.theme-burgundy .guestbook-form input::placeholder,
+            body.theme-burgundy .guestbook-form textarea::placeholder {
                 color: rgba(255,255,255,0.7);
             }
 
 
-        .guestbook-form input:focus,
-        .guestbook-form textarea:focus {
-            outline: none;
-            border-color: var(--gold-main);
-        }
+                .guestbook-form input:focus,
+                .guestbook-form textarea:focus {
+                    outline: none;
+                    border-color: var(--gold-main);
+                }
 
-        .guestbook-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .guestbook-form button {
-            padding: 15px 40px;
-            background-color: var(--gold-main);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Amiri', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-            .guestbook-form button:hover {
-                background-color: var(--gold-dark);
-                transform: scale(1.05);
+            .guestbook-form textarea {
+                resize: vertical;
+                min-height: 120px;
             }
 
-            .guestbook-form button:disabled {
-                background-color: var(--warm-gray);
-                cursor: not-allowed;
+            .guestbook-form button {
+                padding: 15px 40px;
+                background-color: var(--gold-main);
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                font-family: 'Amiri', serif;
+                font-size: 1.2rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
             }
+
+                .guestbook-form button:hover {
+                    background-color: var(--gold-dark);
+                    transform: scale(1.05);
+                }
+
+                .guestbook-form button:disabled {
+                    background-color: var(--warm-gray);
+                    cursor: not-allowed;
+                }
 
         .messages-container {
             max-width: 800px;
@@ -861,38 +898,42 @@
             position: relative;
             transition: border-color 0.4s ease, background-color 0.4s ease;
         }
-
+        
         body.theme-navy .message-card {
-            background-color: rgba(42, 67, 101, 0.3);
-            box-shadow: none;
+             background-color: rgba(42, 67, 101, 0.3);
+             box-shadow: none;
         }
-
+        
         body.theme-green .message-card {
-            background-color: rgba(6, 65, 50, 0.3);
-            box-shadow: none;
+             background-color: rgba(6, 65, 50, 0.3);
+             box-shadow: none;
         }
 
-
-        .message-card .message-text {
-            font-size: 1.1rem;
-            color: var(--warm-gray);
-            line-height: 1.8;
-            margin-bottom: 15px;
-            font-style: italic;
-            max-height: 150px;
-            overflow-y: auto;
-            word-wrap: break-word;
-            padding-left: 10px;
-            transition: color 0.4s ease;
+        body.theme-burgundy .message-card {
+             background-color: rgba(87, 43, 62, 0.3);
+             box-shadow: none;
         }
 
-        .message-card .message-author {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--gold-main);
-            text-align: left;
-            transition: color 0.4s ease;
-        }
+            .message-card .message-text {
+                font-size: 1.1rem;
+                color: var(--warm-gray);
+                line-height: 1.8;
+                margin-bottom: 15px;
+                font-style: italic;
+                max-height: 150px;
+                overflow-y: auto;
+                word-wrap: break-word;
+                padding-left: 10px;
+                transition: color 0.4s ease;
+            }
+
+            .message-card .message-author {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--gold-main);
+                text-align: left;
+                transition: color 0.4s ease;
+            }
 
         .delete-btn {
             position: absolute;
@@ -968,14 +1009,9 @@
             background-color: #f8f4e3;
             transition: background-color 0.4s ease;
         }
-
-        body.theme-navy .site-footer {
-            background-color: #020c1b;
-        }
-
-        body.theme-green .site-footer {
-            background-color: #043026;
-        }
+        body.theme-navy .site-footer { background-color: #020c1b; }
+        body.theme-green .site-footer { background-color: #043026; }
+        body.theme-burgundy .site-footer { background-color: #2a0b18; }
 
 
         .footer-container {
@@ -1076,7 +1112,7 @@
             color: var(--warm-gray);
             margin-bottom: 25px;
             line-height: 1.7;
-            transition: color 0.4s ease;
+             transition: color 0.4s ease;
         }
 
         .modal-content input[type="password"] {
@@ -1088,9 +1124,9 @@
             font-family: 'Amiri', serif;
             font-size: 1.1rem;
             text-align: center;
-            transition: border-color 0.4s ease;
+             transition: border-color 0.4s ease;
         }
-
+        
             .modal-content input[type="password"]:focus {
                 outline: none;
                 border-color: var(--gold-main);
@@ -1125,20 +1161,24 @@
 
             .confirmation-buttons #cancel-btn {
                 background-color: var(--warm-gray);
-                transition: background-color 0.4s ease;
+                 transition: background-color 0.4s ease;
             }
 
                 .confirmation-buttons #cancel-btn:hover {
                     background-color: #8a867c;
                 }
+                
+                body.theme-navy .confirmation-buttons #cancel-btn:hover {
+                    background-color: #525e71;
+                }
+                
+                body.theme-green .confirmation-buttons #cancel-btn:hover {
+                    background-color: #505d42;
+                }
 
-        body.theme-navy .confirmation-buttons #cancel-btn:hover {
-            background-color: #525e71;
-        }
-
-        body.theme-green .confirmation-buttons #cancel-btn:hover {
-            background-color: #505d42;
-        }
+                body.theme-burgundy .confirmation-buttons #cancel-btn:hover {
+                    background-color: #5c3b4a;
+                }
 
 
         /* ======== تعريف الأنيميشن ======== */
@@ -1524,21 +1564,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
+            
             // ========================= START: Theme Switcher Logic =========================
             const themeSwitcher = document.getElementById('theme-switcher');
             const body = document.body;
-            const themes = ['default', 'theme-navy', 'theme-green'];
+            const themes = ['default', 'theme-navy', 'theme-green', 'theme-burgundy'];
             let currentThemeIndex = 0;
 
             const savedTheme = localStorage.getItem('weddingTheme');
             if (savedTheme && themes.includes(savedTheme)) {
                 currentThemeIndex = themes.indexOf(savedTheme);
-                if (savedTheme !== 'default') {
+                if(savedTheme !== 'default') {
                     body.classList.add(savedTheme);
                 }
             }
-
+            
             themeSwitcher.addEventListener('click', () => {
                 body.classList.remove(themes[currentThemeIndex]);
                 currentThemeIndex = (currentThemeIndex + 1) % themes.length;
@@ -1665,7 +1705,7 @@
             };
             const countdownInterval = setInterval(countdown, 1000);
             countdown();
-
+            
             const albumCarousel = document.getElementById('album-carousel');
             const prevBtn = document.getElementById('album-prev-btn');
             const nextBtn = document.getElementById('album-next-btn');
