@@ -21,13 +21,18 @@
             --danger-red: #d9534f;
         }
 
+        html {
+            background-color: var(--background-color);
+            transition: background-color 0.4s ease;
+        }
+
         /* ======== START: Background Themes Addition ======== */
-        body.theme-navy {
+        html.theme-navy {
             --background-color: #0a192f; /* خلفية كحلية غامقة */
             --warm-gray: #a8b2d1; /* لون نص فاتح للتباين */
         }
 
-        body.theme-green {
+        html.theme-green {
             --background-color: #064132; /* خلفية خضراء داكنة حسب الطلب */
             --warm-gray: #d1d8d0; /* لون نص فاتح للتباين */
         }
@@ -42,8 +47,8 @@
 
         body {
             font-family: 'Amiri', serif;
-            background-color: var(--background-color);
-            transition: background-color 0.4s ease;
+            background-color: transparent; /* جعل خلفية البودي شفافة */
+            position: relative;
         }
 
         /* ======== شريط الحالة العلوي ======== */
@@ -66,8 +71,8 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        body.theme-navy .status-bar,
-        body.theme-green .status-bar {
+        html.theme-navy .status-bar,
+        html.theme-green .status-bar {
             border-bottom: 1px solid rgba(179, 135, 40, 0.4);
         }
 
@@ -191,6 +196,7 @@
             text-align: center;
             overflow: hidden;
             color: #fff;
+            background-color: transparent;
         }
 
             /* START: Fading Fog Effect */
@@ -203,7 +209,7 @@
                 height: 40vh; /* Control fade height */
                 z-index: 1;
                 pointer-events: none;
-                background: linear-gradient(to top, var(--background-color) 0%, transparent 100%);
+                background: linear-gradient(to top, var(--background-color) 5%, transparent 80%);
                 transition: background 0.4s ease; /* Smooth transition for theme change */
             }
         /* END: Fading Fog Effect */
@@ -329,11 +335,10 @@
 
         /* ======== قسم التفاصيل والعداد الزمني ======== */
         .details-section {
-            background-color: var(--background-color);
+            background-color: transparent;
             position: relative;
             height: 70px;
             overflow: visible;
-            transition: background-color 0.4s ease;
         }
 
         .countdown-title {
@@ -367,8 +372,8 @@
             transition: transform 0.3s ease, border-color 0.4s ease;
         }
 
-        body.theme-navy .time-unit,
-        body.theme-green .time-unit {
+        html.theme-navy .time-unit,
+        html.theme-green .time-unit {
             box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
         }
 
@@ -418,8 +423,8 @@
             transition: background 0.4s ease, border-color 0.4s ease;
         }
 
-        body.theme-navy .hero-section .time-unit,
-        body.theme-green .hero-section .time-unit {
+        html.theme-navy .hero-section .time-unit,
+        html.theme-green .hero-section .time-unit {
             background: rgba(255, 255, 255, 0.15); /* Light glass for dark themes */
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -454,10 +459,11 @@
         .site-footer {
             position: relative;
             border-top: none;
+            background-color: transparent;
         }
 
         .album-section {
-            padding: 120px 0 80px;
+            padding: 80px 0;
         }
 
         .final-image-section {
@@ -465,46 +471,20 @@
         }
 
         .event-details-section {
-            padding: 120px 20px 80px;
+            padding: 80px 20px;
         }
 
         .guestbook-section {
-            padding: 120px 20px 80px;
+            padding: 80px 20px;
         }
 
         .site-footer {
-            padding: 100px 20px 50px;
-        }
-
-            .album-section::before,
-            .final-image-section::before,
-            .event-details-section::before,
-            .guestbook-section::before,
-            .site-footer::before {
-                content: '';
-                position: absolute;
-                top: 40px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 180px;
-                height: 45px;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Cpath d='M 80 25 C 40 5, 40 45, 80 25' stroke='%23b38728' stroke-width='2' fill='none' /%3E%3Cpath d='M 120 25 C 160 5, 160 45, 120 25' stroke='%23b38728' stroke-width='2' fill='none' /%3E%3Cpath d='M 100 15 L 110 25 L 100 35 L 90 25 Z' fill='%23b38728' /%3E%3C/svg%3E");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-            }
-
-        .final-image-section::before {
-            top: 5vh;
+            padding: 60px 20px 50px;
         }
 
         /* ======== قسم الألبوم المعدل ======== */
         .album-section {
-            background-color: var(--background-color);
-            padding: 120px 0 80px;
-            position: relative;
             overflow: hidden;
-            transition: background-color 0.4s ease;
         }
 
         .section-title {
@@ -605,14 +585,12 @@
         .final-image-section {
             height: 100vh;
             width: 100%;
-            background-color: var(--background-color);
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
-            transition: background-color 0.4s ease;
         }
 
             .final-image-section .bg-image {
@@ -646,17 +624,15 @@
             mask-composite: intersect;
         }
 
-        body.theme-navy .glass-backdrop,
-        body.theme-green .glass-backdrop {
+        html.theme-navy .glass-backdrop,
+        html.theme-green .glass-backdrop {
             opacity: 1;
         }
         /* END: Fading Glass Box Solution */
 
         /* ======== قسم تفاصيل الحفل ======== */
         .event-details-section {
-            background-color: var(--background-color);
             text-align: center;
-            transition: background-color 0.4s ease;
         }
 
         .details-container {
@@ -682,13 +658,13 @@
             transform: translateY(40px);
         }
 
-        body.theme-navy .detail-item {
+        html.theme-navy .detail-item {
             background: rgba(42, 67, 101, 0.3);
             border: 1px solid rgba(179, 135, 40, 0.5);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        body.theme-green .detail-item {
+        html.theme-green .detail-item {
             background: rgba(6, 65, 50, 0.3);
             border: 1px solid rgba(179, 135, 40, 0.5);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
@@ -761,11 +737,6 @@
             }
 
         /* ======== قسم سجل الزوار ======== */
-        .guestbook-section {
-            background-color: var(--background-color);
-            transition: background-color 0.4s ease;
-        }
-
         .guestbook-form {
             max-width: 600px;
             margin: 0 auto 50px auto;
@@ -786,24 +757,24 @@
                 transition: border-color 0.3s ease, background-color 0.4s ease, color 0.4s ease;
             }
 
-        body.theme-navy .guestbook-form input,
-        body.theme-navy .guestbook-form textarea {
+        html.theme-navy .guestbook-form input,
+        html.theme-navy .guestbook-form textarea {
             background-color: rgba(42, 67, 101, 0.3);
             border-color: rgba(179, 135, 40, 0.5);
             color: #fff;
         }
 
-        body.theme-green .guestbook-form input,
-        body.theme-green .guestbook-form textarea {
+        html.theme-green .guestbook-form input,
+        html.theme-green .guestbook-form textarea {
             background-color: rgba(6, 65, 50, 0.3);
             border-color: rgba(179, 135, 40, 0.5);
             color: #fff;
         }
 
-            body.theme-navy .guestbook-form input::placeholder,
-            body.theme-navy .guestbook-form textarea::placeholder,
-            body.theme-green .guestbook-form input::placeholder,
-            body.theme-green .guestbook-form textarea::placeholder {
+            html.theme-navy .guestbook-form input::placeholder,
+            html.theme-navy .guestbook-form textarea::placeholder,
+            html.theme-green .guestbook-form input::placeholder,
+            html.theme-green .guestbook-form textarea::placeholder {
                 color: rgba(255,255,255,0.7);
             }
 
@@ -862,12 +833,12 @@
             transition: border-color 0.4s ease, background-color 0.4s ease;
         }
 
-        body.theme-navy .message-card {
+        html.theme-navy .message-card {
             background-color: rgba(42, 67, 101, 0.3);
             box-shadow: none;
         }
 
-        body.theme-green .message-card {
+        html.theme-green .message-card {
             background-color: rgba(6, 65, 50, 0.3);
             box-shadow: none;
         }
@@ -966,14 +937,13 @@
         /* ======== الفوتر ======== */
         .site-footer {
             background-color: #f8f4e3;
-            transition: background-color 0.4s ease;
         }
 
-        body.theme-navy .site-footer {
+        html.theme-navy .site-footer {
             background-color: #020c1b;
         }
 
-        body.theme-green .site-footer {
+        html.theme-green .site-footer {
             background-color: #043026;
         }
 
@@ -1132,11 +1102,11 @@
                     background-color: #8a867c;
                 }
 
-        body.theme-navy .confirmation-buttons #cancel-btn:hover {
+        html.theme-navy .confirmation-buttons #cancel-btn:hover {
             background-color: #525e71;
         }
 
-        body.theme-green .confirmation-buttons #cancel-btn:hover {
+        html.theme-green .confirmation-buttons #cancel-btn:hover {
             background-color: #505d42;
         }
 
@@ -1249,7 +1219,7 @@
                 }
 
             .album-section {
-                padding: 80px 0 40px;
+                padding: 40px 0;
             }
 
             .album-carousel-container {
@@ -1263,26 +1233,16 @@
 
 
             .event-details-section {
-                padding: 80px 20px 40px;
+                padding: 40px 20px;
             }
 
             .guestbook-section {
-                padding: 80px 20px 40px;
+                padding: 40px 20px;
             }
 
             .site-footer {
-                padding: 80px 20px 40px;
+                padding: 40px 20px;
             }
-
-                .album-section::before,
-                .final-image-section::before,
-                .event-details-section::before,
-                .guestbook-section::before,
-                .site-footer::before {
-                    top: 25px;
-                    width: 120px;
-                }
-
 
             .section-title {
                 font-size: 2.5rem;
@@ -1326,6 +1286,7 @@
     </style>
 </head>
 <body>
+
     <div class="status-bar">
         <button class="hamburger-btn">
             <span class="bar"></span>
@@ -1404,7 +1365,7 @@
     </section>
 
     <section id="album-section" class="album-section">
-        <h2 class="section-title">أالبوم الصور</h2>
+        <h2 class="section-title">ألبوم الصور</h2>
         <div class="album-carousel-container">
             <div class="album-carousel" id="album-carousel">
             </div>
@@ -1448,7 +1409,7 @@
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg>
                 <h3>الموقع</h3>
                 <p>قاعة بانوراما، عمان, الأردن</p>
-                <a href="https://maps.app.goo.gl/qzFRzuZus6zs3QP58" target="_blank" class="location-btn">موقع الصاله</a>
+                <a href="http://googleusercontent.com/maps/google.com/0" target="_blank" class="location-btn">موقع الصاله</a>
             </div>
         </div>
     </section>
@@ -1527,7 +1488,7 @@
 
             // ========================= START: Theme Switcher Logic =========================
             const themeSwitcher = document.getElementById('theme-switcher');
-            const body = document.body;
+            const rootEl = document.documentElement; // استهداف <html> بدلاً من <body>
             const themes = ['default', 'theme-navy', 'theme-green'];
             let currentThemeIndex = 0;
 
@@ -1535,16 +1496,16 @@
             if (savedTheme && themes.includes(savedTheme)) {
                 currentThemeIndex = themes.indexOf(savedTheme);
                 if (savedTheme !== 'default') {
-                    body.classList.add(savedTheme);
+                    rootEl.classList.add(savedTheme);
                 }
             }
 
             themeSwitcher.addEventListener('click', () => {
-                body.classList.remove(themes[currentThemeIndex]);
+                rootEl.classList.remove(themes[currentThemeIndex]);
                 currentThemeIndex = (currentThemeIndex + 1) % themes.length;
                 const newTheme = themes[currentThemeIndex];
                 if (newTheme !== 'default') {
-                    body.classList.add(newTheme);
+                    rootEl.classList.add(newTheme);
                 }
                 localStorage.setItem('weddingTheme', newTheme);
             });
