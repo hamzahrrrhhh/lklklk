@@ -36,6 +36,11 @@
             --background-color: #064132; /* خلفية خضراء داكنة حسب الطلب */
             --warm-gray: #d1d8d0; /* لون نص فاتح للتباين */
         }
+
+        html.theme-maroon {
+            --background-color: #380F21; /* خلفية مارونية داكنة حسب الطلب */
+            --warm-gray: #d8d0d1; /* لون نص فاتح للتباين */
+        }
         /* ======== END: Background Themes Addition ======== */
 
 
@@ -72,7 +77,8 @@
         }
 
         html.theme-navy .status-bar,
-        html.theme-green .status-bar {
+        html.theme-green .status-bar,
+        html.theme-maroon .status-bar {
             border-bottom: 1px solid rgba(179, 135, 40, 0.4);
         }
 
@@ -373,7 +379,8 @@
         }
 
         html.theme-navy .time-unit,
-        html.theme-green .time-unit {
+        html.theme-green .time-unit,
+        html.theme-maroon .time-unit {
             box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 8px rgba(212, 175, 55, 0.1);
         }
 
@@ -424,7 +431,8 @@
         }
 
         html.theme-navy .hero-section .time-unit,
-        html.theme-green .hero-section .time-unit {
+        html.theme-green .hero-section .time-unit,
+        html.theme-maroon .hero-section .time-unit {
             background: rgba(255, 255, 255, 0.15); /* Light glass for dark themes */
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
@@ -625,7 +633,8 @@
         }
 
         html.theme-navy .glass-backdrop,
-        html.theme-green .glass-backdrop {
+        html.theme-green .glass-backdrop,
+        html.theme-maroon .glass-backdrop {
             opacity: 1;
         }
         /* END: Fading Glass Box Solution */
@@ -670,6 +679,11 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
+        html.theme-maroon .detail-item {
+            background: rgba(56, 15, 33, 0.4);
+            border: 1px solid rgba(179, 135, 40, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
 
         .details-container.is-visible .detail-item {
             opacity: 1;
@@ -771,10 +785,19 @@
             color: #fff;
         }
 
+        html.theme-maroon .guestbook-form input,
+        html.theme-maroon .guestbook-form textarea {
+            background-color: rgba(56, 15, 33, 0.4);
+            border-color: rgba(179, 135, 40, 0.5);
+            color: #fff;
+        }
+
             html.theme-navy .guestbook-form input::placeholder,
             html.theme-navy .guestbook-form textarea::placeholder,
             html.theme-green .guestbook-form input::placeholder,
-            html.theme-green .guestbook-form textarea::placeholder {
+            html.theme-green .guestbook-form textarea::placeholder,
+            html.theme-maroon .guestbook-form input::placeholder,
+            html.theme-maroon .guestbook-form textarea::placeholder {
                 color: rgba(255,255,255,0.7);
             }
 
@@ -843,6 +866,10 @@
             box-shadow: none;
         }
 
+        html.theme-maroon .message-card {
+            background-color: rgba(56, 15, 33, 0.4);
+            box-shadow: none;
+        }
 
         .message-card .message-text {
             font-size: 1.1rem;
@@ -945,6 +972,10 @@
 
         html.theme-green .site-footer {
             background-color: #043026;
+        }
+
+        html.theme-maroon .site-footer {
+            background-color: #210812;
         }
 
 
@@ -1108,6 +1139,10 @@
 
         html.theme-green .confirmation-buttons #cancel-btn:hover {
             background-color: #505d42;
+        }
+
+        html.theme-maroon .confirmation-buttons #cancel-btn:hover {
+            background-color: #5c3b46;
         }
 
 
@@ -1489,7 +1524,7 @@
             // ========================= START: Theme Switcher Logic =========================
             const themeSwitcher = document.getElementById('theme-switcher');
             const rootEl = document.documentElement; // استهداف <html> بدلاً من <body>
-            const themes = ['default', 'theme-navy', 'theme-green'];
+            const themes = ['default', 'theme-navy', 'theme-green', 'theme-maroon'];
             let currentThemeIndex = 0;
 
             const savedTheme = localStorage.getItem('weddingTheme');
